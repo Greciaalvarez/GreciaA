@@ -28,7 +28,7 @@
             scroll-behavior: smooth;
         }
 
-        /* HEADER / BANNER */
+        /* BANNER */
         .hero-section {
             background: linear-gradient(135deg, rgba(26, 32, 44, 0.8) 0%, rgba(45, 55, 72, 0.4) 100%), 
                         url('boston.jpg');
@@ -59,10 +59,10 @@
             object-fit: cover;
         }
 
-        .hero-text h1 { margin: 0; font-size: 2rem; color: white; letter-spacing: -0.5px; }
-        .hero-text p { margin: 5px 0 0; color: var(--accent); font-weight: 400; font-size: 1.1rem; }
+        .hero-text h1 { margin: 0; font-size: 2rem; color: white; }
+        .hero-text p { margin: 5px 0 0; color: var(--accent); font-size: 1.1rem; }
 
-        /* GRID SYSTEM */
+        /* GRID */
         .main-grid {
             max-width: 1200px;
             margin: -60px auto 60px;
@@ -72,7 +72,6 @@
             gap: 30px;
         }
 
-        /* BENTO CARDS CON ZOOM */
         .bento-card {
             background: var(--white);
             border-radius: var(--radius-lg);
@@ -80,71 +79,50 @@
             box-shadow: var(--shadow);
             opacity: 0; 
             transform: translateY(30px);
-            cursor: pointer;
             border: 1px solid transparent;
         }
 
         .bento-card.visible { opacity: 1; transform: translateY(0); }
 
-        /* EFECTO ZOOM Y BRILLO EN BORDES (Educación y Experiencia) */
+        /* EFECTO HOVER ZOOM Y GLOW */
         .bento-card:hover {
-            transform: scale(1.03) translateY(-5px);
+            transform: scale(1.02);
             border-color: var(--accent);
-            box-shadow: 0 15px 45px rgba(212, 163, 163, 0.2);
+            box-shadow: 0 15px 45px rgba(212, 163, 163, 0.15);
         }
 
-        h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 30px; }
+        h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 25px; }
 
-        /* PROYECTOS */
-        .project-box {
-            margin-bottom: 40px;
-            text-decoration: none;
-            display: block;
-            color: inherit;
+        /* ACORDEÓN DE EXPERIENCIA */
+        .accordion-item {
+            border-bottom: 1px solid #edf2f7;
+            padding: 15px 0;
+            cursor: pointer;
         }
 
-        .img-container {
-            width: 100%;
-            height: 250px;
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header h3 { margin: 0; font-size: 1.1rem; color: var(--dark); }
+        .accordion-header span { color: var(--accent); font-weight: 600; font-size: 0.8rem; }
+
+        .accordion-content {
+            max-height: 0;
             overflow: hidden;
-            border-radius: var(--radius-md);
-            margin-bottom: 20px;
-            background: #edf2f7;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: max-height 0.5s ease-out, padding 0.3s ease;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .img-container img { width: 100%; height: 100%; object-fit: cover; }
-
-        .project-box:hover img { transform: scale(1.08); }
-        .project-box:hover h3 { color: var(--accent); }
-
-        .tag {
-            display: inline-block;
-            padding: 5px 14px;
-            background: #fdf2f2;
-            color: #b38888;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 8px;
+        .accordion-item.active .accordion-content {
+            max-height: 500px; /* Suficiente para el texto largo */
+            padding-top: 15px;
         }
 
-        /* LÍNEA DE TIEMPO */
-        .timeline-item {
-            padding-left: 20px;
-            border-left: 2px solid #edf2f7;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .timeline-item::after {
-            content: "";
-            position: absolute;
-            left: -6px; top: 0;
-            width: 10px; height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
+        .accordion-item.active h3 { color: var(--accent); }
 
         /* BOTÓN FLOTANTE */
         .floating-contact {
@@ -160,29 +138,23 @@
             justify-content: center;
             box-shadow: 0 10px 30px rgba(0,119,181,0.4);
             text-decoration: none;
-            font-size: 24px;
             z-index: 1000;
         }
 
-        .floating-contact:hover { transform: scale(1.1) rotate(5deg); }
-
-        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; }
-
         @media (max-width: 900px) {
-            .main-grid { grid-template-columns: 1fr; margin-top: 20px; }
-            .profile-card { flex-direction: column; padding: 30px; text-align: center; }
+            .main-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <a href=https://www.linkedin.com/in/greciaa/ class="floating-contact" target="_blank">in</a>
+    <a href="TU_LINK_DE_LINKEDIN_AQUI" class="floating-contact" target="_blank">in</a>
 
     <header class="hero-section">
         <div class="profile-card">
-            <img src="perfil.jpg" alt="Analyst Profile" class="profile-img">
+            <img src="perfil.jpg" alt="Profile" class="profile-img">
             <div class="hero-text">
-                <h1>Grecia Alvarez</h1>
+                <h1>Grecia Alvarez </h1>
                 <p>Business Intelligence Analyst | Risk Management</p>
             </div>
         </div>
@@ -192,39 +164,68 @@
         <div class="left-aside">
             <div class="bento-card" style="margin-bottom: 30px;">
                 <h2>Education </h2>
-                <div class="timeline-item">
-                    <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">2024 - 2025</div>
-                    <div style="font-weight: 600;">M.S International Business </div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Hult International Business School</div>
+                <div style="margin-bottom: 15px;">
+                    <span style="color: var(--accent); font-weight: 600; font-size: 0.8rem;">2018 - 2022</span>
+                    <h3 style="margin: 5px 0; font-size: 1rem;">Bachelor in Finance</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Boston University</p>
                 </div>
             </div>
 
             <div class="bento-card">
-                <h2>Experience </h2>
-                <div class="timeline-item">
-                    <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">2023 - Presente</div>
-                    <div style="font-weight: 600;">Junior Risk Analyst</div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Wall Street Global</div>
+                <h2>Experiencia (Clic para expandir)</h2>
+                
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <h3>BI Senior Analyst</h3>
+                        <span>2023 - Pres.</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Liderazgo en la implementación de dashboards predictivos. Gestión de bases de datos SQL y optimización de modelos de riesgo financiero para carteras de alta volatilidad.</p>
+                    </div>
                 </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <h3>Junior Risk Analyst</h3>
+                        <span>2021 - 2023</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Análisis de exposición crediticia y reportes automatizados en Python. Colaboración directa con el equipo de inversión para la mitigación de pérdidas trimestrales.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        <h3>Data Intern</h3>
+                        <span>2020 - 2021</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Limpieza y normalización de datos financieros masivos. Soporte en la creación de visualizaciones en Tableau para clientes corporativos.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <div class="right-content">
             <div class="bento-card">
                 <h2>Proyectos</h2>
-                <div class="project-box">
-                    <div class="img-container"><img src="proyecto1.jpg" alt="Proyecto 1"></div>
-                    <h3>Risk Predictor Model</h3>
-                    <p>Análisis de series temporales para gestión de riesgos.</p>
-                    <div><span class="tag">SQL</span><span class="tag">Python</span></div>
+                <div style="margin-bottom: 30px;">
+                    <img src="proyecto1.jpg" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+                    <h3>Volatility Forecasting Model</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Algoritmo avanzado para la predicción de movimientos de mercado en Boston & NY Exchanges.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer><p>© 2026 | Portfolio Profesional</p></footer>
-
     <script>
+        // Función para el Acordeón
+        function toggleAccordion(element) {
+            element.classList.toggle('active');
+        }
+
+        // Animación de entrada
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -232,5 +233,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.bento-card').forEach(card => observer.observe(card));
     </script>
+
 </body>
 </html>
