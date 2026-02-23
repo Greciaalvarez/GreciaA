@@ -3,140 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Business Intelligence Analyst</title>
+    <title>Portfolio | BI Analyst & Risk Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent-rose: #e2b1b1; /* Oro rosa suave */
-            --text-main: #f1f5f9;
+            --bg: #0a0f1a;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent: #f4d0d0; /* Rose Champagne */
+            --text-main: #ffffff;
             --text-dim: #94a3b8;
-            --border-color: rgba(226, 177, 177, 0.3);
         }
+
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
         body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             margin: 0; padding: 0; 
-            background-color: var(--dark-bg); 
+            background-color: var(--bg); 
             color: var(--text-main);
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* BANNER CON FOTO */
+        /* BANNER DINÁMICO */
         .hero-banner {
-            height: 350px;
-            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070'); /* Fondo de edificios/finanzas */
+            height: 450px;
+            background: linear-gradient(135deg, rgba(10, 15, 26, 0.95), rgba(20, 30, 48, 0.7)), 
+                        url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
-            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: left;
-            padding: 0 10%;
-            border-bottom: 3px solid var(--accent-rose);
+            border-bottom-left-radius: 60px;
+            border-bottom-right-radius: 60px;
+            margin-bottom: -50px;
         }
 
-        .hero-content { display: flex; align-items: center; gap: 30px; width: 100%; max-width: 1100px; }
+        .hero-content { 
+            display: flex; 
+            align-items: center; 
+            gap: 40px; 
+            max-width: 1000px; 
+            width: 90%; 
+        }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--accent-rose);
+            width: 160px; height: 160px;
+            border-radius: 40px; /* Cuadrado redondeado moderno */
+            border: 2px solid var(--accent);
             object-fit: cover;
-            background: #eee;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .hero-text h1 { margin: 0; font-size: 2.8rem; color: var(--text-main); }
-        .hero-text p { font-size: 1.2rem; color: var(--accent-rose); font-weight: 500; margin-top: 5px; }
+        .hero-text h1 { font-size: 3rem; margin: 0; font-weight: 600; letter-spacing: -1px; }
+        .hero-text p { color: var(--accent); font-size: 1.1rem; opacity: 0.9; }
 
-        section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        
-        h2 { 
-            font-size: 1.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--accent-rose); 
-            border-left: 4px solid var(--accent-rose); 
-            padding-left: 15px;
-            margin-bottom: 25px;
+        /* SECCIONES ANIMADAS */
+        section { 
+            max-width: 900px; 
+            margin: 80px auto; 
+            padding: 0 25px; 
+            opacity: 0; transform: translateY(30px); /* Para la animación de entrada */
         }
 
-        /* TARJETAS ESTILO GLASSMORPHISM */
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        h2 { font-weight: 400; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 30px; }
+
         .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            padding: 25px;
-            border-radius: 12px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 24px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-        /* EDUCACIÓN Y EXPERIENCIA */
-        .item-title { color: var(--text-main); font-weight: 600; font-size: 1.1rem; margin: 0; }
-        .item-subtitle { color: var(--accent-rose); font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .date { float: right; color: var(--text-dim); font-size: 0.85rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
-        ul { padding-left: 20px; color: var(--text-dim); }
-        li { margin-bottom: 8px; }
-
-        footer { text-align: center; padding: 50px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border-color); }
-    </style>
-</head>
-<body>
-
-    <div class="hero-banner">
-        <div class="hero-content">
-            <img src="https://via.placeholder.com/180" alt="Tu Foto" class="profile-img">
-            <div class="hero-text">
-                <h1>Tu Nombre</h1>
-                <p>Business Intelligence Analyst | Risk Management & Investments</p>
-            </div>
-        </div>
-    </div>
-
-    <section id="educacion">
-        <h2>Educación</h2>
-        <div class="glass-card">
-            <span class="date">2018 - 2022</span>
-            <p class="item-title">Grado en Finanzas / Economía / Ingeniería</p>
-            <span class="item-subtitle">Universidad de Ejemplo, Ciudad</span>
-        </div>
-    </section>
-
-    <section id="experiencia">
-        <h2>Experiencia Laboral</h2>
-        <div class="glass-card">
-            <span class="date">2023 - Presente</span>
-            <p class="item-title">Junior BI Analyst</p>
-            <span class="item-subtitle">Empresa de Inversiones / Banco X</span>
-            <ul>
-                <li>Automatización de reportes de riesgo utilizando SQL y Python.</li>
-                <li>Análisis de tendencias de mercado para la toma de decisiones del comité de inversión.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <h2>Proyectos de Datos</h2>
-        <div class="grid">
-            <div class="glass-card">
-                <p class="item-title">Dashboard de Volatilidad</p>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Visualización interactiva en Power BI sobre el riesgo sistémico en activos de Wall Street.</p>
-            </div>
-            <div class="glass-card">
-                <p class="item-title">Modelo de Score de Crédito</p>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Algoritmo de clasificación para evaluar el perfil de riesgo de nuevos inversores.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>Diseñado con profesionalismo &copy; 2026 | Tu Nombre</p>
-    </footer>
-
-</body>
-</html>
+        .item-title { font-size: 1.2rem; margin: 0; color: var(--text-main
