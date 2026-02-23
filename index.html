@@ -13,6 +13,7 @@
             --bg: #f4f7fa;
             --white: #ffffff;
             --accent: #d4a3a3; /* Rose Gold */
+            --accent-light: #fdf2f2;
             --linkedin: #0077b5;
             --whatsapp: #25d366;
             --email: #EA4335;
@@ -87,13 +88,13 @@
         }
         .social-button:hover { transform: scale(1.1); background: var(--accent); color: var(--dark); }
 
-        /* GRID CONFIGURADO (ENSANCHADO) */
+        /* GRID */
         .main-grid {
             max-width: 1300px;
             margin: -50px auto 60px;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1.2fr 1.8fr; /* Equilibrio perfecto */
+            grid-template-columns: 1.2fr 1.8fr;
             gap: 35px;
         }
 
@@ -110,7 +111,7 @@
 
         h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 25px; }
 
-        /* EDUCACIÓN ESTILO FICHA */
+        /* EDUCACIÓN */
         .edu-item { margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px; }
         .edu-info { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
 
@@ -119,103 +120,14 @@
         .skill-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; }
         .skill-item i { color: var(--accent); width: 20px; text-align: center; }
 
-        /* ACORDEÓN */
-        .accordion-item { border-bottom: 1px solid #edf2f7; padding: 15px 0; cursor: pointer; }
-        .accordion-content { max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 0.9rem; }
-        .accordion-item.active .accordion-content { max-height: 300px; padding-top: 10px; }
-
-        /* PROYECTOS */
-        .project-box { margin-bottom: 35px; text-decoration: none; color: inherit; display: block; }
-        .img-container { width: 100%; height: 280px; overflow: hidden; border-radius: var(--radius-md); margin-bottom: 15px; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .project-box:hover img { transform: scale(1.05); }
-
-        @media (max-width: 1024px) {
-            .main-grid { grid-template-columns: 1fr; }
-            .profile-card-horizontal { flex-direction: column; text-align: center; }
+        /* ACORDEÓN CON EFECTO ROSE GOLD */
+        .accordion-item { 
+            border-bottom: 1px solid #edf2f7; 
+            padding: 18px 15px; 
+            cursor: pointer; 
+            margin: 0 -15px;
+            border-radius: 12px;
         }
-    </style>
-</head>
-<body>
-
-    <header class="hero-section">
-        <div class="profile-card-horizontal">
-            <img src="perfil.jpg" alt="Analyst" class="profile-img">
-            <div class="hero-text">
-                <h1>Tu Nombre</h1>
-                <p>Business Intelligence Analyst | Risk Management</p>
-                <div class="social-buttons">
-                    <a href="TU_LINKEDIN" class="social-button"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:tu@email.com" class="social-button"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/TUNUMERO" class="social-button"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <div class="main-grid">
-        <div class="left-col">
-            <div class="bento-card" style="margin-bottom: 30px;">
-                <h2>Educación</h2>
-                <div class="edu-item">
-                    <h3 style="margin: 0; font-size: 1.05rem;">M.S International Business</h3>
-                    <p style="margin: 4px 0; font-weight: 600;">Hult International Business School</p>
-                    <div class="edu-info">
-                        <span><i class="fas fa-map-marker-alt"></i> Boston,USA</span>
-                        <span><i class="fas fa-calendar-alt"></i> 2025</span>
-                 
-                <h3 style="margin: 0; font-size: 1.05rem;">M.S International Business</h3>
-                    <p style="margin: 4px 0; font-weight: 600;">Hult International Business School</p>
-                    <div class="edu-info">
-                        <span><i class="fas fa-map-marker-alt"></i> Boston,USA</span>
-                        <span><i class="fas fa-calendar-alt"></i> 2025</span>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="bento-card" style="margin-bottom: 30px;">
-                <h2>Hard Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
-                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI</div>
-                    <div class="skill-item"><i class="fas fa-file-excel"></i> Excel VBA</div>
-                </div>
-            </div>
-
-            <div class="bento-card">
-                <h2>Experiencia</h2>
-                <div class="accordion-item" onclick="this.classList.toggle('active')">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
-                        <h3 style="margin:0; font-size:1rem;">Senior BI Analyst</h3>
-                        <span style="color:var(--accent); font-size:0.8rem; font-weight:600;">2023 - Pres.</span>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Optimización de modelos de riesgo financiero y automatización de reportes mensuales.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="right-col">
-            <div class="bento-card">
-                <h2>Proyectos</h2>
-                <div class="project-box">
-                    <div class="img-container"><img src="proyecto1.jpg" alt="P1"></div>
-                    <h3>Market Risk Dashboard</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Análisis visual de volatilidad de activos.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.bento-card').forEach(card => observer.observe(card));
-    </script>
-</body>
-</html>
+        .accordion-item:hover { background-color: #fcfcfc; }
+        
+        .accordion-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
