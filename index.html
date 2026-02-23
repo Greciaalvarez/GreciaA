@@ -95,13 +95,23 @@
         .social-button:hover { transform: scale(1.2); background: var(--accent); color: var(--dark); }
 
         /* GRID CONTENT */
+        /* CONTENEDOR MÁS ANCHO PARA APROVECHAR LA PANTALLA */
         .main-grid {
-            max-width: 1200px;
+            max-width: 1300px; /* Aumentamos de 1200 a 1300 */
             margin: -60px auto 60px;
-            padding: 0 20px;
+            padding: 0 30px;
             display: grid;
-            grid-template-columns: 1fr 1.8fr;
-            gap: 30px;
+            /* Ajustamos las columnas para que la izquierda no sea tan pequeña */
+            grid-template-columns: 1.2fr 1.8fr; 
+            gap: 40px; /* Más espacio entre columnas para evitar que se vea amontonado */
+        }
+        
+        /* AJUSTE PARA MÓVILES (Súper importante) */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr; /* En tablets y móviles se pone una debajo de otra */
+                margin-top: 20px;
+            }
         }
 
         .bento-card {
