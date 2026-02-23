@@ -3,193 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | BI Analyst & Risk Management</title>
+    <title>BI Analyst | Portfolio Profesional</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0f1a;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent: #f4d0d0; /* Rose Champagne */
-            --text-main: #ffffff;
-            --text-dim: #94a3b8;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --accent-rose: #e2b1b1;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --radius: 24px;
         }
-
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             margin: 0; padding: 0; 
             background-color: var(--bg); 
-            color: var(--text-main);
+            color: var(--dark-text);
             scroll-behavior: smooth;
         }
 
-        /* BANNER DINÁMICO */
-        .hero-banner {
-            height: 450px;
-            background: linear-gradient(135deg, rgba(10, 15, 26, 0.95), rgba(20, 30, 48, 0.7)), 
-                        url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
+        /* BANNER FLOTANTE */
+        .header-container {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
             display: flex;
-            align-items: center;
             justify-content: center;
-            border-bottom-left-radius: 60px;
-            border-bottom-right-radius: 60px;
-            margin-bottom: -50px;
         }
 
-        .hero-content { 
-            display: flex; 
-            align-items: center; 
-            gap: 40px; 
-            max-width: 1000px; 
-            width: 90%; 
+        .hero-card {
+            background: var(--white);
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transform: translateY(20px);
         }
 
         .profile-img {
-            width: 160px; height: 160px;
-            border-radius: 40px; /* Cuadrado redondeado moderno */
-            border: 2px solid var(--accent);
+            width: 150px; height: 150px;
+            border-radius: 20px;
             object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 3px solid var(--accent-rose);
         }
 
-        .hero-text h1 { font-size: 3rem; margin: 0; font-weight: 600; letter-spacing: -1px; }
-        .hero-text p { color: var(--accent); font-size: 1.1rem; opacity: 0.9; }
-
-        /* SECCIONES ANIMADAS */
-        section { 
-            max-width: 900px; 
-            margin: 80px auto; 
-            padding: 0 25px; 
-            opacity: 0; transform: translateY(30px); /* Para la animación de entrada */
+        .hero-text h1 { margin: 0; font-size: 2rem; color: var(--dark-text); }
+        .hero-text p { color: var(--light-text); margin: 5px 0 20px 0; }
+        
+        .btn-contact {
+            padding: 10px 25px;
+            background: var(--accent-rose);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.3s;
         }
 
-        section.visible { opacity: 1; transform: translateY(0); }
+        .btn-contact:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        h2 { font-weight: 400; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 30px; }
+        /* SECCIONES */
+        section { max-width: 900px; margin: 80px auto; padding: 0 20px; }
+        h2 { font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        h2::before { content: ""; width: 30px; height: 4px; background: var(--accent-rose); border-radius: 10px; }
 
         .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
+            background: var(--white);
             padding: 30px;
-            border-radius: 24px;
+            border-radius: var(--radius);
             margin-bottom: 20px;
-            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #f1f5f9;
         }
 
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--accent);
-            transform: scale(1.02);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        /* GRILLA DE PROYECTOS CON FOTOS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
 
-        .item-title { font-size: 1.2rem; margin: 0; color: var(--text-main); }
-        .item-subtitle { color: var(--accent); font-size: 0.85rem; display: block; margin-top: 5px; }
-        .date { float: right; color: var(--text-dim); font-size: 0.8rem; }
+        .project-card:hover { transform: translateY(-10px); }
 
-        /* TAGS DE HABILIDADES */
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .project-info { padding: 20px; }
+        .project-info h3 { margin: 0; font-size: 1.2rem; }
+        .project-info p { color: var(--light-text); font-size: 0.9rem; margin: 10px 0; }
+
         .tag {
-            display: inline-block;
-            padding: 5px 12px;
-            background: var(--glass-border);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            margin: 5px 5px 0 0;
-            color: var(--accent);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            background: #f1f5f9;
+            color: var(--light-text);
+            border-radius: 8px;
+            margin-right: 5px;
         }
 
-        footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.8rem; }
+        footer { text-align: center; padding: 60px; color: var(--light-text); font-size: 0.9rem; }
 
-        /* BOTÓN DE CONTACTO */
-        .btn-contact {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 100px;
-            font-size: 0.9rem;
-        }
-
-        .btn-contact:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
     </style>
 </head>
 <body>
 
-    <div class="hero-banner">
-        <div class="hero-content">
-            <img src="https://via.placeholder.com/160" alt="Profile" class="profile-img">
+    <header class="header-container">
+        <div class="hero-card">
+            <img src="perfil.jpg" alt="Tu Nombre" class="profile-img">
             <div class="hero-text">
-                <h1>Grecia Zarella Alvarez Leyva</h1>
-                <p>BI Analyst & Risk Management Expert</p>
-                <a href="mailto:tuemail@ejemplo.com" class="btn-contact">Contactar</a>
+                <h1>Tu Nombre</h1>
+                <p>Business Intelligence Analyst | Risk & Investments</p>
+                <a href="mailto:tu@email.com" class="btn-contact">Contactar</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <section id="educacion">
+    <section>
         <h2>Educación</h2>
         <div class="glass-card">
-            <span class="date">2018 - 2022</span>
-            <p class="item-title">Bachelor of Finance & Analytics</p>
-            <span class="item-subtitle">Universidad Prestigiosa</span>
+            <span style="float: right; color: var(--accent-rose); font-weight: 600;">2018 - 2022</span>
+            <h3>Bachelor of Finance & Analytics</h3>
+            <p style="color: var(--light-text);">Universidad de Wall Street, Ciudad</p>
         </div>
     </section>
 
-    <section id="experiencia">
+    <section>
         <h2>Experiencia</h2>
         <div class="glass-card">
-            <span class="date">Actualidad</span>
-            <p class="item-title">Risk Analyst en Wall Street Firm</p>
-            <span class="item-subtitle">Optimización de carteras y modelos de riesgo.</span>
-            <div style="margin-top: 15px;">
-                <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Fintech</span>
-            </div>
+            <span style="float: right; color: var(--accent-rose); font-weight: 600;">Actualidad</span>
+            <h3>Risk Analyst en Wall Street Firm</h3>
+            <p style="color: var(--light-text);">Optimización de carteras y manejo de modelos predictivos de riesgo financiero.</p>
         </div>
     </section>
 
-    <section id="proyectos">
+    <section>
         <h2>Proyectos</h2>
-        <div class="grid">
-            <div class="glass-card">
-                <p class="item-title">Market Analysis Tool</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Modelado de datos en tiempo real para predicción de mercado.</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="proyecto1.jpg" alt="Market Analysis" class="project-img">
+                <div class="project-info">
+                    <h3>Market Analysis Tool</h3>
+                    <p>Dashboard interactivo para monitoreo de activos en tiempo real.</p>
+                    <span class="tag">Power BI</span><span class="tag">SQL</span>
+                </div>
             </div>
-            <div class="glass-card">
-                <p class="item-title">Investment Dashboard</p>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Panel interactivo de rendimiento de portafolio.</p>
+            <div class="project-card">
+                <img src="proyecto2.jpg" alt="Credit Scoring" class="project-img">
+                <div class="project-info">
+                    <h3>Credit Scoring Model</h3>
+                    <p>Modelo de clasificación de riesgo crediticio usando Python.</p>
+                    <span class="tag">Python</span><span class="tag">Finance</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="proyecto3.jpg" alt="Investment Portfolio" class="project-img">
+                <div class="project-info">
+                    <h3>Investment Portfolio</h3>
+                    <p>Optimización de carteras bajo el modelo de Markowitz.</p>
+                    <span class="tag">Excel VBA</span><span class="tag">Math</span>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 | Desarrollado con elegancia para el mundo financiero.</p>
+        <p>© 2026 | Portfolio Profesional de BI Analyst</p>
     </footer>
-
-    <script>
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 
 </body>
 </html>
