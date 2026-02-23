@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Business Intelligence Analyst</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         :root {
             --bg: #f4f7fa;
@@ -31,122 +33,106 @@
             overflow-x: hidden;
         }
 
-        /* BANNER RECTANGULAR HORIZONTAL */
+        /* BANNER HORIZONTAL */
         .hero-section {
             background: linear-gradient(135deg, rgba(26, 32, 44, 0.7) 0%, rgba(45, 55, 72, 0.3) 100%), 
                         url('boston.jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 450px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-bottom-left-radius: 60px;
             border-bottom-right-radius: 60px;
-            perspective: 1000px;
         }
 
         .profile-card-horizontal {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
             display: flex;
-            flex-direction: row; /* Horizontal */
+            flex-direction: row;
             align-items: center;
             padding: 40px;
             border-radius: var(--radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.2);
             gap: 40px;
-            max-width: 850px;
+            max-width: 900px;
             width: 90%;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-            transform-style: preserve-3d;
-        }
-
-        .profile-card-horizontal:hover {
-            transform: translateY(-5px) rotateX(2deg);
-            background: rgba(255, 255, 255, 0.2);
         }
 
         .profile-img {
-            width: 160px; height: 160px;
-            border-radius: 50%; /* Foto redonda clásica y elegante */
+            width: 150px; height: 150px;
+            border-radius: 50%;
             border: 4px solid var(--accent);
             object-fit: cover;
             flex-shrink: 0;
         }
 
-        .hero-text { text-align: left; }
-        .hero-text h1 { margin: 0; font-size: 2.5rem; color: white; letter-spacing: -1px; }
-        .hero-text p { margin: 8px 0 20px 0; color: var(--accent); font-size: 1.2rem; font-weight: 300; }
+        .hero-text h1 { margin: 0; font-size: 2.2rem; color: white; }
+        .hero-text p { margin: 5px 0 20px 0; color: var(--accent); font-size: 1.1rem; }
 
-        .social-buttons { display: flex; gap: 15px; }
+        .social-buttons { display: flex; gap: 12px; }
         .social-button {
-            width: 42px; height: 42px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            font-size: 1.1rem;
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .social-button:hover { transform: scale(1.2); background: var(--accent); color: var(--dark); }
+        .social-button:hover { transform: scale(1.1); background: var(--accent); color: var(--dark); }
 
-        /* GRID CONTENT */
-        /* CONTENEDOR MÁS ANCHO PARA APROVECHAR LA PANTALLA */
+        /* GRID CONFIGURADO (ENSANCHADO) */
         .main-grid {
-            max-width: 1300px; /* Aumentamos de 1200 a 1300 */
-            margin: -60px auto 60px;
-            padding: 0 30px;
+            max-width: 1300px;
+            margin: -50px auto 60px;
+            padding: 0 20px;
             display: grid;
-            /* Ajustamos las columnas para que la izquierda no sea tan pequeña */
-            grid-template-columns: 1.2fr 1.8fr; 
-            gap: 40px; /* Más espacio entre columnas para evitar que se vea amontonado */
-        }
-        
-        /* AJUSTE PARA MÓVILES (Súper importante) */
-        @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr; /* En tablets y móviles se pone una debajo de otra */
-                margin-top: 20px;
-            }
+            grid-template-columns: 1.2fr 1.8fr; /* Equilibrio perfecto */
+            gap: 35px;
         }
 
         .bento-card {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 35px;
+            padding: 30px;
             box-shadow: var(--shadow);
             opacity: 0; transform: translateY(30px);
+            border: 1px solid transparent;
         }
         .bento-card.visible { opacity: 1; transform: translateY(0); }
-        .bento-card:hover { transform: scale(1.02); border: 1px solid var(--accent); }
+        .bento-card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
-        /* SKILLS GRID */
-        .skills-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;
-        }
-        .skill-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
-        .skill-item i { color: var(--accent); font-size: 1.2rem; }
+        h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 25px; }
+
+        /* EDUCACIÓN ESTILO FICHA */
+        .edu-item { margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px; }
+        .edu-info { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-top: 5px; }
+
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .skill-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; }
+        .skill-item i { color: var(--accent); width: 20px; text-align: center; }
 
         /* ACORDEÓN */
         .accordion-item { border-bottom: 1px solid #edf2f7; padding: 15px 0; cursor: pointer; }
         .accordion-content { max-height: 0; overflow: hidden; color: var(--text-muted); font-size: 0.9rem; }
-        .accordion-item.active .accordion-content { max-height: 200px; padding-top: 10px; }
+        .accordion-item.active .accordion-content { max-height: 300px; padding-top: 10px; }
 
         /* PROYECTOS */
-        .project-box { margin-bottom: 40px; cursor: pointer; }
-        .img-container { width: 100%; height: 260px; overflow: hidden; border-radius: var(--radius-md); margin-bottom: 15px; }
+        .project-box { margin-bottom: 35px; text-decoration: none; color: inherit; display: block; }
+        .img-container { width: 100%; height: 280px; overflow: hidden; border-radius: var(--radius-md); margin-bottom: 15px; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; }
         .project-box:hover img { transform: scale(1.05); }
 
-        @media (max-width: 850px) {
+        @media (max-width: 1024px) {
             .main-grid { grid-template-columns: 1fr; }
-            .profile-card-horizontal { flex-direction: column; text-align: center; padding: 30px; }
-            .hero-text { text-align: center; }
-            .social-buttons { justify-content: center; }
+            .profile-card-horizontal { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -154,14 +140,14 @@
 
     <header class="hero-section">
         <div class="profile-card-horizontal">
-            <img src="perfil.jpg" alt="Profile" class="profile-img">
+            <img src="perfil.jpg" alt="Analyst" class="profile-img">
             <div class="hero-text">
-                <h1>Grecia Alvarez</h1>
+                <h1>Tu Nombre</h1>
                 <p>Business Intelligence Analyst | Risk Management</p>
                 <div class="social-buttons">
-                    <a href="https://www.linkedin.com/in/greciaa/" class="social-button"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="Greciazarella09@gmail.com" class="social-button"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/TELEFONO" class="social-button"><i class="fab fa-whatsapp"></i></a>
+                    <a href="TU_LINKEDIN" class="social-button"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:tu@email.com" class="social-button"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/TUNUMERO" class="social-button"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -171,45 +157,47 @@
         <div class="left-col">
             <div class="bento-card" style="margin-bottom: 30px;">
                 <h2>Educación</h2>
-                
-                <div style="margin-bottom: 25px; border-left: 3px solid var(--accent); padding-left: 15px;">
-                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--dark);">Bachelor in Finance & Business Analytics</h3>
-                    <p style="margin: 5px 0 2px 0; font-weight: 600; color: var(--dark);">Boston University</p>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
-                        <span><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Estados Unidos</span>
-                        <span><i class="fas fa-calendar-alt" style="color: var(--accent);"></i> Graduación: 2022</span>
+                <div class="edu-item">
+                    <h3 style="margin: 0; font-size: 1.05rem;">Bachelor in Finance & Analytics</h3>
+                    <p style="margin: 4px 0; font-weight: 600;">Boston University</p>
+                    <div class="edu-info">
+                        <span><i class="fas fa-map-marker-alt"></i> USA</span>
+                        <span><i class="fas fa-calendar-alt"></i> 2022</span>
                     </div>
                 </div>
-            
-                <div style="border-left: 3px solid #edf2f7; padding-left: 15px;">
-                    <h3 style="margin: 0; font-size: 1.1rem; color: var(--dark);">Especialización en Riesgo Financiero</h3>
-                    <p style="margin: 5px 0 2px 0; font-weight: 600; color: var(--dark);">Universidad de Ejemplo</p>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
-                        <span><i class="fas fa-map-marker-alt"></i> España</span>
-                        <span><i class="fas fa-calendar-alt"></i> Graduación: 2023</span>
-                    </div>
+            </div>
+
+            <div class="bento-card" style="margin-bottom: 30px;">
+                <h2>Hard Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI</div>
+                    <div class="skill-item"><i class="fas fa-file-excel"></i> Excel VBA</div>
                 </div>
             </div>
 
             <div class="bento-card">
                 <h2>Experiencia</h2>
                 <div class="accordion-item" onclick="this.classList.toggle('active')">
-                    <div style="display:flex; justify-content:space-between;">
-                        <h4 style="margin:0;">Senior Analyst</h4>
-                        <span style="color:var(--accent); font-size:0.8rem;">2023</span>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="margin:0; font-size:1rem;">Senior BI Analyst</h3>
+                        <span style="color:var(--accent); font-size:0.8rem; font-weight:600;">2023 - Pres.</span>
                     </div>
-                    <div class="accordion-content">Experto en modelos de riesgo y dashboards de alta complejidad.</div>
+                    <div class="accordion-content">
+                        <p>Optimización de modelos de riesgo financiero y automatización de reportes mensuales.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="right-col">
             <div class="bento-card">
-                <h2>Proyectos Estratégicos</h2>
+                <h2>Proyectos</h2>
                 <div class="project-box">
                     <div class="img-container"><img src="proyecto1.jpg" alt="P1"></div>
-                    <h3>Market Predictor</h3>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">Dashboard de riesgo en tiempo real con integración de SQL.</p>
+                    <h3>Market Risk Dashboard</h3>
+                    <p style="color:var(--text-muted); font-size:0.9rem;">Análisis visual de volatilidad de activos.</p>
                 </div>
             </div>
         </div>
