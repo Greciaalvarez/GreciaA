@@ -89,4 +89,107 @@
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 
-        .item-title { font-size: 1.2rem; margin: 0; color: var(--text-main
+        .item-title { font-size: 1.2rem; margin: 0; color: var(--text-main); }
+        .item-subtitle { color: var(--accent); font-size: 0.85rem; display: block; margin-top: 5px; }
+        .date { float: right; color: var(--text-dim); font-size: 0.8rem; }
+
+        /* TAGS DE HABILIDADES */
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: var(--glass-border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            margin: 5px 5px 0 0;
+            color: var(--accent);
+        }
+
+        footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.8rem; }
+
+        /* BOTÓN DE CONTACTO */
+        .btn-contact {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.9rem;
+        }
+
+        .btn-contact:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+            <img src="https://via.placeholder.com/160" alt="Profile" class="profile-img">
+            <div class="hero-text">
+                <h1>Tu Nombre</h1>
+                <p>BI Analyst & Risk Management Expert</p>
+                <a href="mailto:tuemail@ejemplo.com" class="btn-contact">Contactar</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="educacion">
+        <h2>Educación</h2>
+        <div class="glass-card">
+            <span class="date">2018 - 2022</span>
+            <p class="item-title">Bachelor of Finance & Analytics</p>
+            <span class="item-subtitle">Universidad Prestigiosa</span>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <h2>Experiencia</h2>
+        <div class="glass-card">
+            <span class="date">Actualidad</span>
+            <p class="item-title">Risk Analyst en Wall Street Firm</p>
+            <span class="item-subtitle">Optimización de carteras y modelos de riesgo.</span>
+            <div style="margin-top: 15px;">
+                <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Fintech</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="grid">
+            <div class="glass-card">
+                <p class="item-title">Market Analysis Tool</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Modelado de datos en tiempo real para predicción de mercado.</p>
+            </div>
+            <div class="glass-card">
+                <p class="item-title">Investment Dashboard</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Panel interactivo de rendimiento de portafolio.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 | Desarrollado con elegancia para el mundo financiero.</p>
+    </footer>
+
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
