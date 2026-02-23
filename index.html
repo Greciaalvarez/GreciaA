@@ -9,13 +9,12 @@
         :root {
             --bg: #f4f7fa;
             --white: #ffffff;
-            --accent: #d4a3a3; /* Rose Gold */
-            --linkedin: #0077b5;
+            --accent: #d4a3a3; /* Rose Gold Mate */
             --dark: #1a202c;
             --text-muted: #718096;
             --radius-lg: 30px;
             --radius-md: 18px;
-            --shadow: 0 10px 40px rgba(0,0,0,0.06);
+            --shadow: 0 10px 40px rgba(0,0,0,0.04);
         }
 
         * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -30,10 +29,7 @@
 
         /* HEADER / BANNER */
         .hero-section {
-            background: linear-gradient(135deg, rgba(26, 32, 44, 0.8) 0%, rgba(45, 55, 72, 0.4) 100%), 
-                        url('boston.jpg'); /* Asegúrate de que el nombre coincida con tu archivo */
-            background-size: cover;
-            background-position: center; /* Esto centra la vista en los edificios */
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
             padding: 120px 20px;
             text-align: center;
             border-bottom-left-radius: 50px;
@@ -88,31 +84,31 @@
         .project-box {
             margin-bottom: 40px;
             cursor: pointer;
-            text-decoration: none;
-            display: block;
-            color: inherit;
+            overflow: hidden;
+            border-radius: var(--radius-md);
         }
 
         .img-container {
             width: 100%;
-            height: 250px;
+            height: 220px;
             overflow: hidden;
             border-radius: var(--radius-md);
             margin-bottom: 20px;
             background: #edf2f7;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .img-container img {
             width: 100%; height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .project-box:hover img { transform: scale(1.08); }
+        .project-box:hover img { transform: scale(1.1); }
         .project-box:hover h3 { color: var(--accent); }
 
         .project-content h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
-        
+        .project-content p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+
         .tag {
             display: inline-block;
             padding: 5px 14px;
@@ -124,7 +120,7 @@
             margin-right: 8px;
         }
 
-        /* LÍNEA DE TIEMPO */
+        /* LÍNEA DE TIEMPO SIMPLE */
         .timeline-item {
             padding-left: 20px;
             border-left: 2px solid #edf2f7;
@@ -141,28 +137,6 @@
             border-radius: 50%;
         }
 
-        /* BOTÓN FLOTANTE */
-        .floating-contact {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--linkedin);
-            color: white;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0,119,181,0.4);
-            text-decoration: none;
-            font-size: 24px;
-            z-index: 1000;
-        }
-
-        .floating-contact:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-
         footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; }
 
         @media (max-width: 900px) {
@@ -173,28 +147,25 @@
 </head>
 <body>
 
-    <a href=https://www.linkedin.com/in/greciaa/ class="floating-contact" target="_blank" title="Hablemos por LinkedIn">
-        in
-    </a>
-
     <header class="hero-section">
         <div class="profile-card">
             <img src="perfil.jpg" alt="Analyst Profile" class="profile-img">
             <div class="hero-text">
-                <h1>Tu Nombre</h1>
-                <p>Business Intelligence Analyst | Wall Street</p>
+                <h1>[Tu Nombre Completo]</h1>
+                <p>Business Intelligence Analyst | Risk Management</p>
             </div>
         </div>
     </header>
 
     <div class="main-grid">
+        
         <div class="left-aside">
             <div class="bento-card" style="margin-bottom: 30px;">
                 <h2>Educación</h2>
                 <div class="timeline-item">
                     <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">2018 - 2022</div>
-                    <div style="font-weight: 600;">Bachelor in Finance & Economics</div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Tu Universidad</div>
+                    <div style="font-weight: 600;">B.S. In Business Analytics</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Universidad Ejemplo</div>
                 </div>
             </div>
 
@@ -202,46 +173,40 @@
                 <h2>Experiencia</h2>
                 <div class="timeline-item">
                     <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">2023 - Presente</div>
-                    <div style="font-weight: 600;">BI Analyst</div>
-                    <div style="color: var(--text-muted); font-size: 0.9rem;">Inversiones Globales S.A.</div>
+                    <div style="font-weight: 600;">Senior Risk Analyst</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Wall Street Global Corp</div>
+                </div>
+                <div class="timeline-item">
+                    <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">2021 - 2022</div>
+                    <div style="font-weight: 600;">Data Intern</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Investment Group Inc.</div>
                 </div>
             </div>
         </div>
 
         <div class="right-content">
             <div class="bento-card">
-                <h2>Proyectos</h2>
+                <h2>Proyectos Estratégicos</h2>
                 
                 <div class="project-box">
                     <div class="img-container">
-                        <img src="proyecto1.jpg" alt="Proyecto 1">
+                        <img src="proyecto1.jpg" alt="Análisis de Riesgo">
                     </div>
                     <div class="project-content">
-                        <h3>Market Risk Dashboard</h3>
-                        <p>Visualización de exposición al riesgo en tiempo real.</p>
-                        <div><span class="tag">Power BI</span><span class="tag">SQL</span></div>
+                        <h3>Predictive Risk Dashboard</h3>
+                        <p>Desarrollo de un panel en Power BI para predecir la volatilidad de activos financieros mediante modelos de regresión.</p>
+                        <div><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span></div>
                     </div>
                 </div>
 
                 <div class="project-box">
                     <div class="img-container">
-                        <img src="proyecto2.jpg" alt="Proyecto 2">
+                        <img src="proyecto2.jpg" alt="Optimización">
                     </div>
                     <div class="project-content">
-                        <h3>Portfolio Optimization</h3>
-                        <p>Análisis cuantitativo de rendimientos históricos.</p>
-                        <div><span class="tag">Python</span><span class="tag">Excel</span></div>
-                    </div>
-                </div>
-
-                <div class="project-box">
-                    <div class="img-container">
-                        <img src="proyecto3.jpg" alt="Proyecto 3">
-                    </div>
-                    <div class="project-content">
-                        <h3>Investment Reporting</h3>
-                        <p>Automatización de informes mensuales de inversión.</p>
-                        <div><span class="tag">Python</span><span class="tag">Tableau</span></div>
+                        <h3>Portfolio Optimization Tool</h3>
+                        <p>Herramienta en Python para la optimización de carteras de inversión basada en la teoría moderna de portafolio.</p>
+                        <div><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Finanzas</span></div>
                     </div>
                 </div>
 
@@ -250,16 +215,22 @@
     </div>
 
     <footer>
-        <p>© 2026 | Portfolio Profesional</p>
+        <p>© 2026 | Business Intelligence Professional Portfolio</p>
     </footer>
 
     <script>
+        // Efecto de aparición suave al hacer scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.bento-card').forEach(card => observer.observe(card));
+
+        document.querySelectorAll('.bento-card').forEach(card => {
+            observer.observe(card);
+        });
     </script>
 </body>
 </html>
