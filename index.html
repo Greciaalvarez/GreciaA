@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Business Intelligence Analyst</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --bg: #f4f7fa;
             --white: #ffffff;
             --accent: #d4a3a3; /* Rose Gold */
             --linkedin: #0077b5;
+            --whatsapp: #25d366;
+            --email: #EA4335; /* Google red */
             --dark: #1a202c;
             --text-muted: #718096;
             --radius-lg: 30px;
@@ -44,11 +47,12 @@
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             display: inline-flex;
+            flex-direction: column; /* Para apilar los elementos */
             align-items: center;
             padding: 25px 45px;
             border-radius: var(--radius-lg);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            gap: 30px;
+            gap: 20px; /* Espacio entre la imagen y el texto */
             box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
 
@@ -60,7 +64,30 @@
         }
 
         .hero-text h1 { margin: 0; font-size: 2rem; color: white; }
-        .hero-text p { margin: 5px 0 0; color: var(--accent); font-size: 1.1rem; }
+        .hero-text p { margin: 5px 0 15px 0; color: var(--accent); font-size: 1.1rem; }
+
+        /* Botones de Contacto en el Banner */
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .social-button.linkedin { background: var(--linkedin); }
+        .social-button.whatsapp { background: var(--whatsapp); }
+        .social-button.email { background: var(--email); }
+
 
         /* GRID */
         .main-grid {
@@ -93,6 +120,31 @@
 
         h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 25px; }
 
+        /* SKILLS CON LOGOS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            gap: 15px;
+        }
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        .skill-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            width: 30px; /* Para alinear bien el texto */
+            text-align: center;
+        }
+        /* Colores específicos para iconos (opcional) */
+        .skill-item .fa-python { color: #306998; } 
+        .skill-item .fa-database { color: #4479A1; } /* SQL */
+        .skill-item .fa-chart-bar { color: #F2C811; } /* Power BI / Tableau */
+
+
         /* ACORDEÓN DE EXPERIENCIA */
         .accordion-item {
             border-bottom: 1px solid #edf2f7;
@@ -115,16 +167,51 @@
             transition: max-height 0.5s ease-out, padding 0.3s ease;
             color: var(--text-muted);
             font-size: 0.9rem;
+            margin-top: 10px;
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 500px; /* Suficiente para el texto largo */
-            padding-top: 15px;
+            max-height: 500px;
+            padding-top: 5px;
         }
 
         .accordion-item.active h3 { color: var(--accent); }
 
-        /* BOTÓN FLOTANTE */
+        /* PROYECTOS */
+        .project-box {
+            margin-bottom: 40px;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            background: #edf2f7;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+        .project-box:hover img { transform: scale(1.08); }
+        .project-box:hover h3 { color: var(--accent); }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 14px;
+            background: #fdf2f2;
+            color: #b38888;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+
+        /* BOTÓN FLOTANTE LINKEDIN */
         .floating-contact {
             position: fixed;
             bottom: 30px;
@@ -138,24 +225,44 @@
             justify-content: center;
             box-shadow: 0 10px 30px rgba(0,119,181,0.4);
             text-decoration: none;
+            font-size: 24px;
             z-index: 1000;
         }
 
+        .floating-contact:hover { transform: scale(1.1) rotate(5deg); }
+
+        footer { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; }
+
         @media (max-width: 900px) {
-            .main-grid { grid-template-columns: 1fr; }
+            .main-grid { grid-template-columns: 1fr; margin-top: 20px; }
+            .profile-card { flex-direction: column; padding: 30px; text-align: center; }
+            .hero-text h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <a href="TU_LINK_DE_LINKEDIN_AQUI" class="floating-contact" target="_blank">in</a>
+    <a href="TU_LINK_DE_LINKEDIN_AQUI" class="floating-contact" target="_blank" title="Mi LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
 
     <header class="hero-section">
         <div class="profile-card">
-            <img src="perfil.jpg" alt="Profile" class="profile-img">
+            <img src="perfil.jpg" alt="Analyst Profile" class="profile-img">
             <div class="hero-text">
-                <h1>Grecia Alvarez </h1>
+                <h1>Tu Nombre</h1>
                 <p>Business Intelligence Analyst | Risk Management</p>
+                <div class="social-buttons">
+                    <a href="TU_LINK_DE_LINKEDIN_AQUI" class="social-button linkedin" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:tu.email@ejemplo.com" class="social-button email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://wa.me/TUNUMERO" class="social-button whatsapp" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -163,11 +270,23 @@
     <div class="main-grid">
         <div class="left-aside">
             <div class="bento-card" style="margin-bottom: 30px;">
-                <h2>Education </h2>
+                <h2>Educación</h2>
                 <div style="margin-bottom: 15px;">
                     <span style="color: var(--accent); font-weight: 600; font-size: 0.8rem;">2018 - 2022</span>
-                    <h3 style="margin: 5px 0; font-size: 1rem;">Bachelor in Finance</h3>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Boston University</p>
+                    <h3 style="margin: 5px 0; font-size: 1rem;">Bachelor in Finance & Economics</h3>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Boston University (Ejemplo)</p>
+                </div>
+            </div>
+
+            <div class="bento-card" style="margin-bottom: 30px;">
+                <h2>Hard Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fas fa-database"></i> SQL Databases</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> Python (Pandas, NumPy)</div>
+                    <div class="skill-item"><i class="fas fa-chart-bar"></i> Power BI / Tableau</div>
+                    <div class="skill-item"><i class="fas fa-file-excel"></i> Excel (VBA)</div>
+                    <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Platforms (Azure/AWS)</div>
+                    <div class="skill-item"><i class="fas fa-calculator"></i> Quantitative Analysis</div>
                 </div>
             </div>
 
@@ -181,6 +300,7 @@
                     </div>
                     <div class="accordion-content">
                         <p>Liderazgo en la implementación de dashboards predictivos. Gestión de bases de datos SQL y optimización de modelos de riesgo financiero para carteras de alta volatilidad.</p>
+                        <p>Responsable del desarrollo de informes ejecutivos para la toma de decisiones estratégicas del C-level.</p>
                     </div>
                 </div>
 
@@ -191,6 +311,7 @@
                     </div>
                     <div class="accordion-content">
                         <p>Análisis de exposición crediticia y reportes automatizados en Python. Colaboración directa con el equipo de inversión para la mitigación de pérdidas trimestrales.</p>
+                        <p>Desarrollo de herramientas internas para la valoración de productos derivados y modelado de escenarios de estrés.</p>
                     </div>
                 </div>
 
@@ -201,6 +322,7 @@
                     </div>
                     <div class="accordion-content">
                         <p>Limpieza y normalización de datos financieros masivos. Soporte en la creación de visualizaciones en Tableau para clientes corporativos.</p>
+                        <p>Asistencia en la preparación de presentaciones de resultados y análisis de mercado.</p>
                     </div>
                 </div>
 
@@ -210,14 +332,29 @@
         <div class="right-content">
             <div class="bento-card">
                 <h2>Proyectos</h2>
-                <div style="margin-bottom: 30px;">
-                    <img src="proyecto1.jpg" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
-                    <h3>Volatility Forecasting Model</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Algoritmo avanzado para la predicción de movimientos de mercado en Boston & NY Exchanges.</p>
+                <div class="project-box">
+                    <div class="img-container"><img src="proyecto1.jpg" alt="Proyecto 1"></div>
+                    <h3>Market Risk Dashboard</h3>
+                    <p>Visualización de exposición al riesgo en tiempo real y detección temprana de anomalías.</p>
+                    <div><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Risk Mgmt</span></div>
+                </div>
+                <div class="project-box">
+                    <div class="img-container"><img src="proyecto2.jpg" alt="Proyecto 2"></div>
+                    <h3>Portfolio Optimization</h3>
+                    <p>Herramienta Python para análisis cuantitativo y optimización de carteras.</p>
+                    <div><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Investments</span></div>
+                </div>
+                <div class="project-box">
+                    <div class="img-container"><img src="proyecto3.jpg" alt="Proyecto 3"></div>
+                    <h3>Automated Reporting System</h3>
+                    <p>Sistema de informes financieros automatizados para stakeholders.</p>
+                    <div><span class="tag">Excel VBA</span><span class="tag">Tableau</span><span class="tag">Automation</span></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer><p>© 2026 | Business Intelligence Professional Portfolio</p></footer>
 
     <script>
         // Función para el Acordeón
@@ -233,6 +370,5 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.bento-card').forEach(card => observer.observe(card));
     </script>
-
 </body>
 </html>
