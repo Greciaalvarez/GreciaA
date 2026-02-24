@@ -54,10 +54,13 @@
 
         .featured-img {
             width: 100%;
-            height: 400px;
+            height: auto; /* Para que no se deforme la imagen del bot */
+            max-height: 500px;
             object-fit: cover;
             border-radius: 20px;
             margin: 20px 0 40px;
+            border: 1px solid rgba(212, 163, 163, 0.3); /* Un borde sutil Rose Gold */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
         .data-box {
