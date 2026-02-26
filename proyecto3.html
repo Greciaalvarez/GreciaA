@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investigación: Market Volatility | Portfolio</title>
+    <title>Project Detail: Bike Rental Demand Analysis | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -51,6 +51,9 @@
 
         h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
         h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
+        
+        .tech-list { list-style: none; padding: 0; display: flex; gap: 15px; margin-top: 10px; }
+        .tech-tag { background: #fdf2f2; color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
 
         .featured-img {
             width: 100%;
@@ -68,42 +71,75 @@
             margin: 30px 0;
         }
 
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .insight-item { background: #f8fafc; padding: 20px; border-radius: 15px; }
+
         footer { text-align: center; padding: 40px; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
 <header>
-    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Business Intelligence Research</p>
+    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Data Analysis & Business Intelligence</p>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portfolio</a>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     
-    <h1>Bike Rental Analysis 2025</h1>
-    <p style="color: var(--text-muted);">Python Project by  Grecia Zarella Alvarez Leyva</p>
+    <h1>Bike Rental Demand Analysis</h1>
+    <p style="color: var(--text-muted);">Python Analysis Project by Grecia Zarella Alvarez Leyva</p>
 
-    <img src="proyecto3.jpg" alt="Gráficos de Análisis" class="featured-img">
-
-    <h2>1. Resumen Ejecutivo</h2>
-    <p>The rental bike emerged strongly in 2020 during the pandemic, when people started to seek safer and more flexible ways to move around the city. Since then, it has become helpful among students and then among business professionals who value more convenience and sustainability options. Additionally, tourism and seasonal factors, especially the summer season, were key drivers of rental demand. Moreover, tourism destinations encourage renting and driving around the city as another way to do a personal tour. More cities are becoming greener in transportation, and rental companies wanting to develop and expand their business must keep an eye on rental trends. By aligning their strategies with these evolving consumer preferences and environmental shifts, companies can position themselves for long-term growth and consider expanding into emerging markets such as Latin America.</p>
-
-    <div class="data-box">
-        <strong>Key Insight:</strong> Se detectó un incremento del 15% en la exposición al riesgo en carteras no diversificadas durante el Q3 de 2024.
+    <div class="tech-list">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">Seaborn</span>
+        <span class="tech-tag">EDA</span>
     </div>
 
-    <h2>2. Metodología</h2>
-    <p>Para este análisis se utilizó un modelo de regresión lineal y análisis de series temporales (ARIMA). Los datos fueron extraídos de la terminal de Bloomberg y procesados en un entorno de AWS.</p>
+    <img src="proyecto3.jpg" alt="Analysis Visualization" class="featured-img">
 
-    <h2>3. Visualización de Datos</h2>
-    <img src="dashboard_preview.jpg" alt="Dashboard en Power BI" style="width: 100%; border-radius: 15px; margin: 20px 0;">
+    <h2>1. Introduction</h2>
+    <p>The rental bike industry emerged strongly in 2020 as people sought safer and more flexible urban mobility. Since then, it has become a preferred option for students and professionals valuing convenience and sustainability. This project analyzes rental trends to help companies align their strategies with evolving consumer preferences and environmental shifts, identifying growth opportunities in emerging markets like Latin America.</p>
 
-    <h2>4. Conclusiones</h2>
-    <p>Los resultados sugieren que una cobertura del 10% en activos defensivos mitiga el impacto de la volatilidad en un 25% anual.</p>
+    <div class="data-box">
+        <strong>Major Finding:</strong> Summer is the peak season with <strong>420,714 rentals</strong>, while Winter shows the lowest demand at 86,785 rentals.
+    </div>
+
+    <h2>2. Methodology</h2>
+    <p>This end-to-end analysis was conducted using a dataset of 1,387 records. The process included:</p>
+    <ul>
+        <li><strong>Data Wrangling:</strong> Cleaning and structuring the dataset using <strong>Pandas</strong>.</li>
+        <li><strong>Exploratory Data Analysis (EDA):</strong> Utilizing <strong>Seaborn</strong> and <strong>Matplotlib</strong> to visualize correlations between weather factors (temperature, humidity, wind) and total rentals.</li>
+        <li><strong>Feature Correlation:</strong> Identifying that Temperature has a moderate positive correlation (0.55) with rental volume.</li>
+    </ul>
+
+    <h2>3. Key Insights & Visualization</h2>
+    <div class="insight-grid">
+        <div class="insight-item">
+            <h4><i class="fas fa-clock"></i> Commuter Behavior</h4>
+            <p>Peak demand occurs at 8:00 AM and between 5:00-6:00 PM, indicating that the primary user base consists of daily commuters.</p>
+        </div>
+        <div class="insight-item">
+            <h4><i class="fas fa-cloud-sun"></i> Weather Impact</h4>
+            <p>Rainfall has a negative correlation (-0.11), while high temperatures and low rainfall are ideal drivers for demand.</p>
+        </div>
+    </div>
+    <img src="dashboard_preview.jpg" alt="Demand Heatmap" style="width: 100%; border-radius: 15px; margin: 30px 0;">
+
+    <h2>4. Actionable Strategy</h2>
+    <p>Based on the data-driven results, the following steps are recommended:</p>
+    <ul>
+        <li><strong>Operational Focus:</strong> Prioritize fleet availability and marketing during the Summer, especially in June.</li>
+        <li><strong>Product Offering:</strong> Market weekday supply and value-priced commuter packages for routine riders.</li>
+        <li><strong>Expansion:</strong> Invest in infrastructure and tourist campaigns in underpenetrated markets, primarily in <strong>Latin America</strong>.</li>
+    </ul>
+
+    <h2>5. Conclusion</h2>
+    <p>Bicycle rental demand is driven by commuting patterns, tourism, and seasonal factors. By leveraging data to understand shifting consumer behavior, companies can position themselves for long-term growth and successful entry into new geographical markets.</p>
 </div>
 
 <footer>
-    <p>© 2026 | Portfolio de Investigación Profesional</p>
+    <p>© 2026 | Professional Research Portfolio</p>
 </footer>
 
 </body>
