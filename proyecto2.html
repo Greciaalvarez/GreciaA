@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Options Trading Strategies with Python | Portfolio</title>
+    <title>Options Trading Strategy | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -13,60 +13,36 @@
             --accent: #d4a3a3; /* Rose Gold */
             --dark: #1a202c;
             --text-muted: #718096;
+            --light-accent: #fdf2f2;
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--dark); 
-            line-height: 1.8;
-            margin: 0; padding: 0;
-        }
-
-        header {
-            background: var(--dark);
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: -40px auto 60px;
-            background: var(--white);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.8; margin: 0; }
+        header { background: var(--dark); padding: 40px 20px; text-align: center; color: white; }
+        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        
+        .back-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 600; margin-bottom: 30px; }
         h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
         h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
 
-        .featured-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 20px 0 40px;
-        }
+        .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; margin-right: 5px; }
 
-        .data-box {
-            background: #fdf2f2;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--accent);
-            margin: 30px 0;
-        }
+        .featured-img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; margin: 20px 0 40px; }
+
+        /* Estilo de Tabla Comparativa */
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .comparison-table th { background: var(--dark); color: white; padding: 15px; text-align: left; }
+        .comparison-table td { padding: 15px; border-bottom: 1px solid #edf2f7; }
+        .comparison-table tr:last-child td { border: none; }
+
+        .insight-card { background: #f8fafc; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; margin-bottom: 25px; }
+        
+        /* Lightbox para gráficos */
+        .clickable-img { width: 100%; border-radius: 12px; cursor: pointer; transition: 0.3s; margin-top: 15px; border: 1px solid #eee; }
+        .clickable-img:hover { transform: scale(1.02); opacity: 0.9; }
+        
+        .modal { display: none; position: fixed; z-index: 9999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 900px; border-radius: 10px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 
         footer { text-align: center; padding: 40px; color: var(--text-muted); }
     </style>
@@ -74,37 +50,109 @@
 <body>
 
 <header>
-    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Business Intelligence Research</p>
+    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Financial Data Science</p>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portfolio</a>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     
-    <h1>Market Volatility Analysis 2024-2025</h1>
-    <p style="color: var(--text-muted);">Por: Tu Nombre | Analista de Riesgo</p>
+    <h1>Options Trading Strategies & Risk Management</h1>
+    <p style="color: var(--text-muted);">Quantitative Analysis by Grecia Zarella Alvarez Leyva</p>
 
-    <img src="proyecto2.jpg" alt="Gráficos de Análisis" class="featured-img">
-
-    <h2>1. Resumen Ejecutivo</h2>
-    <p>Esta investigación analiza la correlación entre la subida de tipos de interés y la volatilidad en el sector tecnológico. Se procesaron más de 500,000 registros de datos históricos utilizando SQL y Python.</p>
-
-    <div class="data-box">
-        <strong>Key Insight:</strong> Se detectó un incremento del 15% en la exposición al riesgo en carteras no diversificadas durante el Q3 de 2024.
+    <div style="margin-bottom: 30px;">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Financial Engineering</span>
+        <span class="tech-tag">Greeks Analysis</span>
+        <span class="tech-tag">Black-Scholes</span>
     </div>
 
-    <h2>2. Metodología</h2>
-    <p>Para este análisis se utilizó un modelo de regresión lineal y análisis de series temporales (ARIMA). Los datos fueron extraídos de la terminal de Bloomberg y procesados en un entorno de AWS.</p>
+    <img src="trading_hero.jpg" alt="Options Trading Analysis" class="featured-img">
 
-    <h2>3. Visualización de Datos</h2>
-    <img src="dashboard_preview.jpg" alt="Dashboard en Power BI" style="width: 100%; border-radius: 15px; margin: 20px 0;">
+    <h2>1. Project Scope</h2>
+    <p>This project applies quantitative finance concepts to evaluate two bullish options strategies: <strong>Bull Call Spread</strong> and <strong>Covered Call</strong>. Using real market data, the analysis covers the entire pipeline from data cleaning (liquidity filtering) to advanced profitability modeling and risk sensitivity analysis (The Greeks).</p>
 
-    <h2>4. Conclusiones</h2>
-    <p>Los resultados sugieren que una cobertura del 10% en activos defensivos mitiga el impacto de la volatilidad en un 25% anual.</p>
+    <h2>2. Quantitative Methodology</h2>
+    <div class="insight-card">
+        <p><i class="fas fa-filter" style="color: var(--accent);"></i> <strong>Data Cleaning:</strong> To ensure trade feasibility, I filtered the dataset for liquidity. Only contracts with an <strong>Open Interest > 5</strong> and a <strong>Bid/Ask spread > 0.01</strong> were considered to avoid "paper gains" that cannot be executed in real markets.</p>
+        <p><i class="fas fa-chart-line" style="color: var(--accent);"></i> <strong>Implied Volatility Smile:</strong> Analyzed the IV skew, identifying higher premiums in out-of-the-money (OTM) put options, reflecting market hedging sentiment.</p>
+    </div>
+
+    <h2>3. Comparative Strategy Analysis</h2>
+    <p>Using Python, I modeled the Profit/Loss (P&L) diagrams for both strategies based on their probability of profit and cost efficiency.</p>
+
+    
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Bull Call Spread</th>
+                <th>Covered Call</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Profit Probability</strong></td>
+                <td>41.91%</td>
+                <td><strong>61.97%</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Max Risk</strong></td>
+                <td><strong>Limited ($1,670)</strong></td>
+                <td>Substantial ($25,520)</td>
+            </tr>
+            <tr>
+                <td><strong>Theta (Time Decay)</strong></td>
+                <td>Negative</td>
+                <td><strong>Positive</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Capital Efficiency</strong></td>
+                <td>High (Leveraged)</td>
+                <td>Low (Requires underlying stock)</td>
+            </tr>
+        </tbody>
+    </tbody>
+    </table>
+
+    <h2>4. Key Insights & Visualizations</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+            <h4><i class="fas fa-drafting-compass"></i> Bull Call Spread P&L</h4>
+            <p>Designed for moderate upside. Risk is capped at the premium paid.</p>
+            <img src="trading_img1.png" alt="Bull Call Spread Diagram" class="clickable-img" onclick="openModal(this.src)">
+        </div>
+        <div>
+            <h4><i class="fas fa-shield-alt"></i> Covered Call P&L</h4>
+            <p>Income generation strategy. High probability of profit (61.97%).</p>
+            <img src="trading_img2.png" alt="Covered Call Diagram" class="clickable-img" onclick="openModal(this.src)">
+        </div>
+    </div>
+
+    
+
+    <h2>5. Professional Conclusion</h2>
+    <p>The analysis concludes that while the <strong>Covered Call</strong> offers a higher statistical probability of profit, the <strong>Bull Call Spread</strong> provides superior risk-adjusted returns for traders with limited capital. This project demonstrates the ability to translate complex financial derivatives into actionable investment data.</p>
+</div>
+
+<div id="myModal" class="modal" onclick="closeModal()">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgFull">
 </div>
 
 <footer>
-    <p>© 2026 | Portfolio de Investigación Profesional</p>
+    <p>© 2026 | Quantitative Finance Portfolio | Grecia Zarella Alvarez Leyva</p>
 </footer>
+
+<script>
+    function openModal(src) {
+        document.getElementById("myModal").style.display = "block";
+        document.getElementById("imgFull").src = src;
+    }
+    function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+    }
+</script>
 
 </body>
 </html>
