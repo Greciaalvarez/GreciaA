@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Options Analysis | Grecia Alvarez Portfolio</title>
+    <title>Options Strategy Analysis | Portfolio Grecia Alvarez</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,7 +11,7 @@
             --bg: #f8fafc;
             --white: #ffffff;
             --accent: #d4a3a3; /* Rose Gold */
-            --dark: #1e293b;
+            --dark: #0f172a;
             --text-muted: #64748b;
             --light-accent: #fdf2f2;
             --success: #10b981;
@@ -75,19 +75,17 @@
             margin-bottom: 10px;
         }
 
-        /* Sección de Volatilidad */
+        /* Volatility Section (The Core) */
         .volatility-box {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 35px;
-            border-radius: 25px;
+            padding: 40px;
+            border-radius: 30px;
             margin: 40px 0;
-            position: relative;
-            overflow: hidden;
+            border-bottom: 4px solid var(--accent);
         }
         .volatility-box h3 { color: var(--accent); margin-top: 0; }
 
-        /* Grilla de Insights */
         .insight-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -102,7 +100,6 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
-        /* Tabla Estilizada */
         .comparison-table { 
             width: 100%; 
             border-collapse: separate; 
@@ -126,10 +123,14 @@
         }
         .clickable-img:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
 
-        /* Modal */
-        .modal { display: none; position: fixed; z-index: 1000; padding-top: 80px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(5px); }
-        .modal-content { margin: auto; display: block; width: 85%; max-width: 1000px; border-radius: 12px; }
-        .close { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; }
+        /* Conclusion - High Impact */
+        .conclusion-box {
+            background-color: #fffaf0;
+            border: 2px dashed var(--accent);
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: 50px;
+        }
 
         footer { text-align: center; padding: 60px; color: var(--text-muted); border-top: 1px solid #e2e8f0; }
     </style>
@@ -137,102 +138,102 @@
 <body>
 
 <header>
-    <p style="letter-spacing: 3px; font-weight: 600; font-size: 0.9rem; opacity: 0.8;">HULT INTERNATIONAL BUSINESS SCHOOL</p>
+    <p style="letter-spacing: 3px; font-weight: 600; font-size: 0.9rem; opacity: 0.8;">HULT INTERNATIONAL BUSINESS SCHOOL | QUANTITATIVE FINANCE</p>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-long-arrow-alt-left"></i> Volver al Portafolio</a>
+    <a href="index.html" class="back-btn"><i class="fas fa-long-arrow-alt-left"></i> Back to Portfolio</a>
     
-    <h1>Estrategias de Trading de Opciones con Python</h1>
-    <p style="color: var(--text-muted); font-size: 1.1rem;">Análisis Cuantitativo: Bull Call Spread y Covered Call</p>
+    <h1>Options Trading Strategies with Python</h1>
+    <p style="color: var(--text-muted); font-size: 1.2rem;">Comparative Analysis: Bull Call Spread vs. Covered Call</p>
 
     <div style="margin: 25px 0;">
         <span class="tech-badge">Python (Colab)</span>
-        <span class="tech-badge">Implied Volatility (IV)</span>
-        <span class="tech-badge">The Greeks</span>
-        <span class="tech-badge">Data Cleaning</span>
+        <span class="tech-badge">Implied Volatility (IV) Analysis</span>
+        <span class="tech-badge">Greeks Modeling</span>
+        <span class="tech-badge">Risk Mitigation</span>
     </div>
 
-    <img src="trading_hero.jpg" alt="Análisis de Mercado" class="featured-img" style="width: 100%; height: 450px; object-fit: cover; border-radius: 30px; margin-bottom: 40px;">
+    <img src="trading_hero.jpg" alt="Market Analysis" style="width: 100%; height: 450px; object-fit: cover; border-radius: 30px; margin-bottom: 40px;">
 
-    <h2>1. Resumen del Proyecto</h2>
-    <p>Este informe aplica conceptos avanzados para evaluar dos estrategias alcistas utilizando datos reales de cadenas de opciones. El enfoque principal radica en la <strong>viabilidad de la ejecución</strong>, el análisis de sensibilidad y la optimización de beneficios basada en parámetros de mercado.</p>
+    <h2>1. Executive Summary</h2>
+    <p>This quantitative study evaluates the risk-reward profiles of two bullish options strategies using real-time market data. The project emphasizes <strong>trade feasibility</strong>, market sentiment through volatility analysis, and profitability optimization for strategic decision-making.</p>
 
     <div class="volatility-box">
-        <h3><i class="fas fa-wave-square"></i> Importancia de la Volatilidad Implícita (IV)</h3>
-        <p>El análisis identificó la "sonrisa de volatilidad" (IV Smile), donde se observaron niveles de IV significativamente altos en precios de ejercicio lejanos al dinero. Este parámetro fue crucial para determinar el costo de las estrategias y la probabilidad de éxito de los contratos analizados.</p>
-        <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; font-size: 0.9rem;">
-            <strong>Nota Técnica:</strong> Se procesaron datos de IV para contratos con vencimiento el 19 de enero de 2024, filtrando aquellos con baja liquidez para evitar sesgos en el modelo.
+        <h3><i class="fas fa-wave-square"></i> The Core Factor: Implied Volatility (IV)</h3>
+        <p>A deep dive into the <strong>"Volatility Smile"</strong> revealed significant IV skews at deep out-of-the-money (OTM) strikes. This insight was critical for calculating strategy costs and assessing the probability of success for the analyzed January 19, 2024, contracts.</p>
+        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; font-size: 0.95rem; line-height: 1.5;">
+            <strong>Quantitative Filter:</strong> To ensure realistic execution, I cleaned the dataset by filtering for <strong>Open Interest > 5</strong> and eliminating excessive <strong>Bid-Ask spreads</strong>, preventing "ghost gains" and ensuring liquidity.
         </div>
     </div>
 
-    
-
-    <h2>2. Metodología y Limpieza de Datos</h2>
+    <h2>2. Technical Methodology</h2>
     <div class="insight-grid">
         <div class="insight-card">
-            <h4><i class="fas fa-vial" style="color: var(--accent);"></i> Filtrado de Liquidez</h4>
-            <p>Se eliminaron contratos con <strong>Bid/Ask spreads</strong> excesivos y <strong>Open Interest < 5</strong>. Esto garantiza que las estrategias propuestas sean ejecutables en un mercado real sin deslizamientos severos de precio.</p>
+            <h4><i class="fas fa-microchip" style="color: var(--accent);"></i> Data Processing</h4>
+            <p>Leveraged Python to clean and structure 14 key financial variables, including strike prices and Greeks (Delta, Theta, Vega), ensuring model integrity.</p>
         </div>
         <div class="insight-card">
-            <h4><i class="fas fa-chart-pie" style="color: var(--accent);"></i> Análisis de las Griegas</h4>
-            <p>Se evaluó la sensibilidad de las posiciones mediante <strong>Delta, Gamma, Theta y Vega</strong>, permitiendo entender cómo el paso del tiempo y los cambios en la volatilidad afectan el P&L.</p>
+            <h4><i class="fas fa-shield-alt" style="color: var(--accent);"></i> Risk Sensitivity</h4>
+            <p>Modeled "The Greeks" to measure how time decay (Theta) and volatility shifts (Vega) impact the Portfolio’s P&L in volatile environments.</p>
         </div>
     </div>
 
-    <h2>3. Resultados Comparativos</h2>
-    <p>A continuación se presenta la comparativa de las dos estrategias principales formuladas en el código Python:</p>
+    <h2>3. Performance Benchmarking</h2>
+    <p>Comparative results between the moderate leverage approach and the conservative income-generating model:</p>
 
     <table class="comparison-table">
         <thead>
             <tr>
-                <th>Métrica de Análisis</th>
+                <th>Performance Metric</th>
                 <th>Bull Call Spread</th>
                 <th>Covered Call</th>
             </tr>
         </thead>
         <tbody>
             <tr class="highlight-row">
-                <td>Probabilidad de Ganancia</td>
+                <td><strong>Probability of Profit</strong></td>
                 <td>41.91%</td>
-                <td>61.97%</td>
+                <td><strong>61.97%</strong></td>
             </tr>
             <tr>
-                <td>Riesgo Máximo</td>
-                <td>Definido ($1,670)</td>
-                <td>Sustancial ($25,520)</td>
+                <td>Max Risk Exposure</td>
+                <td>Defined ($1,670)</td>
+                <td>Substantial ($25,520)</td>
             </tr>
             <tr>
-                <td>Sensibilidad al Tiempo</td>
-                <td>Theta Negativo</td>
-                <td>Theta Positivo</td>
+                <td>Time Sensitivity</td>
+                <td>Negative Theta</td>
+                <td><strong>Positive Theta</strong></td>
             </tr>
             <tr>
-                <td>Costo de la Estrategia</td>
-                <td>Bajo (Apalancado)</td>
-                <td>Alto (Requiere Acciones)</td>
+                <td>Capital Requirement</td>
+                <td>Low (Leveraged)</td>
+                <td>High (Equity Required)</td>
             </tr>
         </tbody>
     </table>
 
-    <h2>4. Visualización de Profit/Loss</h2>
+    <h2>4. Visualizing Profit/Loss Diagrams</h2>
     <div class="insight-grid">
         <div>
-            <h4>Diagrama P&L: Bull Call Spread</h4>
-            <p>Visualización del beneficio máximo limitado y la protección contra caídas severas.</p>
+            <h4>P&L Profile: Bull Call Spread</h4>
+            <p>Visualizing capped risk for moderate bullish scenarios.</p>
             <img src="trading_img1.png" alt="P&L Bull Call" class="clickable-img" onclick="openModal(this.src)">
         </div>
         <div>
-            <h4>Diagrama P&L: Covered Call</h4>
-            <p>Estrategia conservadora orientada a la generación de ingresos con alta probabilidad de éxito.</p>
+            <h4>P&L Profile: Covered Call</h4>
+            <p>Optimizing income generation with a high success rate.</p>
             <img src="trading_img2.png" alt="P&L Covered Call" class="clickable-img" onclick="openModal(this.src)">
         </div>
     </div>
 
-    
-
-    <h2>5. Evaluación Final</h2>
-    <p>Los resultados demuestran que, aunque el <strong>Covered Call</strong> presenta una mayor probabilidad estadística de éxito (61.97%), el <strong>Bull Call Spread</strong> es una herramienta más eficiente en términos de capital para escenarios de crecimiento moderado. Este análisis demuestra la capacidad de integrar programación en Python con modelos financieros complejos para la toma de decisiones estratégicas.</p>
+    <div class="conclusion-box">
+        <h2><i class="fas fa-trophy" style="color: var(--accent);"></i> Strategic Conclusion</h2>
+        <p style="font-size: 1.1rem; font-weight: 600;">Data-Driven Decision Making:</p>
+        <p>The analysis proves that while the <strong>Covered Call</strong> yields a significantly higher probability of success (61.97%), its capital intensity and unlimited downside make it a tool for long-term equity holders. Conversely, the <strong>Bull Call Spread</strong> stands as the superior instrument for short-term capital efficiency.</p>
+        <p><strong>The Final Insight:</strong> By mastering Python to automate the calculation of IV Smiles and Greeks, we transform complex market noise into a clear competitive advantage for portfolio management.</p>
+    </div>
 </div>
 
 <div id="imgModal" class="modal" onclick="closeModal()">
@@ -241,7 +242,7 @@
 </div>
 
 <footer>
-    <p>© 2026 | Portafolio de Análisis Financiero | Grecia Zarella Alvarez Leyva</p>
+    <p>© 2026 | Financial Data Analyst Portfolio | Grecia Zarella Alvarez Leyva</p>
 </footer>
 
 <script>
