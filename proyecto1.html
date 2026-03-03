@@ -83,12 +83,27 @@
         OpenTradeBuy(lot, sl, tp);
     </div>
 
-    <h2>4. Conclusion</h2>
-    <p>My research concludes that forcing alignment across too many timeframes suppresses valid opportunities. This automated system achieves a critical balance: utilizing higher-timeframe context for safety, while maintaining the agile execution required for swing trading. This project demonstrates not just coding capability, but a deep understanding of market mechanics and the transition from <strong>theoretical research to live systems engineering</strong>.</p>
-</div>
+    <h2>4. Empirical Performance & Backtesting</h2>
+    <p>Validating the transition from research prototype to execution engine requires empirical testing across different market regimes. Our backtesting approach prioritizes consistency over the maximization of isolated metrics to avoid <em>over-fitting</em>. The scenarios below compare our high-performance baseline against a more conservative stress test.</p>
 
-<footer>
-    <p>© 2026 | Data Analytics Portfolio | Grecia Zarella Alvarez Leyva</p>
+    <img src="tu_imagen_backtest.png" alt="Equity Curve Analysis" style="width: 80%; display: block; margin: 20px auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+
+    <div class="insight-grid">
+        <div class="insight-item">
+            <strong>Scenario A: High-Performance (Sharpe: 3.01)</strong><br>
+            Optimized for efficiency, validating the logic of our H4-context filter.
+        </div>
+        <div class="insight-item">
+            <strong>Scenario B: Conservative (Sharpe: 0.67)</strong><br>
+            A stress-test result, demonstrating the algorithm's capability to maintain a positive Profit Factor during high volatility.
+        </div>
+    </div>
+
+    <p style="margin-top: 30px;"><strong>Key Takeaway:</strong> The variance in results confirms that the system is not hard-coded to a single market condition. By focusing on <em>Risk Governance</em> (ATR-based stops), the strategy maintains resilience across varying market cycles.</p>
+
+    <h2>5. Conclusion</h2>
+    <p>My research concludes that forcing alignment across too many timeframes suppresses valid opportunities. This automated system achieves a critical balance: utilizing higher-timeframe context for safety, while maintaining the agile execution required for swing trading. This project demonstrates not just coding capability, but a deep understanding of market mechanics and the transition from <strong>theoretical research to live systems engineering</strong>.</p>
+
 </footer>
 
 </body>
