@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithmic Decision & Risk Evaluation System | Python & MQL5 | | Portfolio</title>
+    <title>Automated Trading System | Grecia Alvarez Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -13,101 +13,74 @@
             --accent: #d4a3a3; /* Rose Gold */
             --dark: #1a202c;
             --text-muted: #718096;
+            --light-accent: #fdf2f2;
         }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--dark); 
-            line-height: 1.8;
-            margin: 0; padding: 0;
-        }
-
-        header {
-            background: var(--dark);
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: -40px auto 60px;
-            background: var(--white);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.8; margin: 0; }
+        header { background: var(--dark); padding: 40px 20px; text-align: center; color: white; }
+        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        
+        .back-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 600; margin-bottom: 30px; }
         h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
         h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
+        
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; overflow-x: auto; font-size: 0.85rem; margin: 20px 0; }
+        
+        .tech-list { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
 
-        .featured-img {
-            width: 100%;
-            height: auto; /* Para que no se deforme la imagen del bot */
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 20px 0 40px;
-            border: 1px solid rgba(212, 163, 163, 0.3); /* Un borde sutil Rose Gold */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .data-box {
-            background: #fdf2f2;
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid var(--accent);
-            margin: 30px 0;
-        }
-
-        footer { text-align: center; padding: 40px; color: var(--text-muted); }
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .insight-item { background: #f8fafc; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; }
     </style>
 </head>
 <body>
 
 <header>
-    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Business Intelligence Research</p>
+    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Automated Systems Engineering</p>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Portfolio</a>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     
-    <h1>Market Volatility Analysis 2024-2025</h1>
-    <p style="color: var(--text-muted);">Por: Tu Nombre | Analista de Riesgo</p>
+    <h1>Zarella Signal EA: Automated Forex System</h1>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Algorithmic Trading System developed by Grecia Zarella Alvarez Leyva</p>
 
-    <img src="algorithmic-bot.png" alt="Gráficos de Análisis" class="featured-img">
-
-    <h2>1. Resumen Ejecutivo</h2>
-    <p>Esta investigación analiza la correlación entre la subida de tipos de interés y la volatilidad en el sector tecnológico. Se procesaron más de 500,000 registros de datos históricos utilizando SQL y Python.</p>
-
-    <div class="data-box">
-        <strong>Key Insight:</strong> Se detectó un incremento del 15% en la exposición al riesgo en carteras no diversificadas durante el Q3 de 2024.
+    <div class="tech-list">
+        <span class="tech-tag">MQL5 (C++)</span>
+        <span class="tech-tag">MetaTrader 5</span>
+        <span class="tech-tag">Algorithmic Trading</span>
+        <span class="tech-tag">Risk Management</span>
     </div>
 
-    <h2>2. Metodología</h2>
-    <p>Para este análisis se utilizó un modelo de regresión lineal y análisis de series temporales (ARIMA). Los datos fueron extraídos de la terminal de Bloomberg y procesados en un entorno de AWS.</p>
+    <h2>1. The Problem: Manual Execution Constraints</h2>
+    <p>This project was built from scratch to remove human emotion from trading and enforce strict risk management rules. By transitioning from Python analysis to an MQL5 Expert Advisor (EA), the system achieves <strong>24/7 autonomous market monitoring</strong>, executing trades based on quantitative rules rather than discretionary decisions.</p>
 
-    <h2>3. Visualización de Datos</h2>
-    <img src="dashboard_preview.jpg" alt="Dashboard en Power BI" style="width: 100%; border-radius: 15px; margin: 20px 0;">
+    <h2>2. Core Engineering Features</h2>
+    <div class="insight-grid">
+        <div class="insight-item">
+            <h4><i class="fas fa-microchip" style="color: var(--accent);"></i> Multi-Timeframe Analysis</h4>
+            <p>The EA validates H4 trend bias before executing H1 trades, ensuring the system only enters in the direction of the higher-timeframe momentum.</p>
+        </div>
+        <div class="insight-item">
+            <h4><i class="fas fa-shield-alt" style="color: var(--accent);"></i> Dynamic Risk Management</h4>
+            <p>Features an automated <strong>Lot Size Calculator</strong> based on account equity and a structural ATR-based Stop Loss, ensuring consistent risk per trade.</p>
+        </div>
+    </div>
 
-    <h2>4. Conclusiones</h2>
-    <p>Los resultados sugieren que una cobertura del 10% en activos defensivos mitiga el impacto de la volatilidad en un 25% anual.</p>
+    <h2>3. System Architecture</h2>
+    <p>The system leverages a "Pullback and Resumption" logic. Below is the snippet demonstrating the execution engine that manages risk-adjusted position sizing and trade modifications:</p>
+    
+    <div class="code-block">
+        // ATR-Based Stop Loss & Position Sizing Logic
+        double sl = structuralLow - (atr * 1.72);
+        double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);
+        double tp = close1 + (MathAbs(close1 - sl) * 2);
+        OpenTradeBuy(lot, sl, tp);
+    </div>
+
+    <h2>4. Strategic Conclusion</h2>
+    <p>Developing this EA taught me the difference between a "backtested strategy" and a "live system." Dealing with execution errors, liquidity filters, and unexpected market volatility while the system is running live has refined my ability to architect robust, production-ready code. This system is not just about signal generation; it is about <strong>algorithmic discipline</strong>.</p>
 </div>
-
-<footer>
-    <p>© 2026 | Portfolio de Investigación Profesional</p>
-</footer>
 
 </body>
 </html>
