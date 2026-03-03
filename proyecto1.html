@@ -86,9 +86,26 @@
         double tp = close1 + (MathAbs(close1 - sl) * 2);<br>
         OpenTradeBuy(lot, sl, tp);
     </div>
-
-    <img src="diagrama_trading.png" alt="Multi-Timeframe Analysis Diagram" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-</div>
+    <h2>4. Empirical Performance & Backtesting</h2>
+    <p>Segmenting performance by timeframe validates our Swing Trading logic across different market regimes.</p>
+    
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
+            <h3 style="color: #d4a3a3;">Historical Baseline (2024-2025)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>Sharpe:</strong> 3.01 | <strong>DD:</strong> 7.31%</li>
+            </ul>
+            <img src="tu_imagen_301.png" class="thumb" style="width: 100px; height: 100px; object-fit: cover;" onclick="document.getElementById('myModal').style.display='block'; document.getElementById('img01').src=this.src;">
+        </div>
+    
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
+            <h3 style="color: #d4a3a3;">Recent Adaptability (Feb 2026)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>Status:</strong> Volatility Management</li>
+                <li><strong>Outcome:</strong> Consistent Trade Duration</li>
+            </ul>
+            <img src="tu_imagen_067.png" class="thumb" style="width: 100px; height: 100px; object-fit: cover;" onclick="document.getElementById('myModal').style.display='block'; document.getElementById('img01').src=this.src;">
+        </div>
 
 <footer>
     <p>© 2026 | Data Analytics Portfolio | Grecia Zarella Alvarez Leyva</p>
