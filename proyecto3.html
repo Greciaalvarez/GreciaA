@@ -1,242 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Detail: Bike Rental Demand Analysis | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Automated Trading System | Grecia Zarella Alvarez Leyva</title>
     <style>
-        :root {
-            --bg: #f4f7fa;
-            --white: #ffffff;
-            --accent: #d4a3a3; /* Rose Gold */
-            --dark: #1a202c;
-            --text-muted: #718096;
-            --light-accent: #fdf2f2;
-        }
-
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg); 
-            color: var(--dark); 
-            line-height: 1.8;
-            margin: 0; padding: 0;
-        }
-
-        header {
-            background: var(--dark);
-            padding: 40px 20px;
-            text-align: center;
-            color: white;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: -40px auto 60px;
-            background: var(--white);
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 30px;
-            transition: 0.3s;
-        }
-        .back-btn:hover { transform: translateX(-5px); }
-
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
-        h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
-        
-        .tech-list { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; }
-        .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
-
-        .featured-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 20px 0 40px;
-        }
-
-        .data-box {
-            background: var(--light-accent);
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid var(--accent);
-            margin: 30px 0;
-        }
-
-        /* Grid de Insights */
-        .insight-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 25px; 
-            margin-top: 20px; 
-        }
-        .insight-item { 
-            background: #f8fafc; 
-            padding: 20px; 
-            border-radius: 20px;
-            border: 1px solid #edf2f7;
-        }
-        .insight-item h4 { margin-top: 0; color: var(--dark); display: flex; align-items: center; gap: 10px; }
-        .insight-item i { color: var(--accent); }
-
-        /* Estilo para imágenes cliqueables */
-        .clickable-img {
-            width: 100%;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            margin-top: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .clickable-img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Modal / Lightbox */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 9999; 
-            padding-top: 60px; 
-            left: 0; top: 0;
-            width: 100%; height: 100%; 
-            background-color: rgba(26, 32, 44, 0.95); 
-            cursor: zoom-out;
-        }
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 85%;
-            max-width: 1000px;
-            border-radius: 15px;
-            animation: zoomIn 0.3s;
-        }
-        @keyframes zoomIn { from {transform:scale(0.8); opacity:0} to {transform:scale(1); opacity:1} }
-        .close {
-            position: absolute;
-            top: 20px; right: 35px;
-            color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;
-        }
-
-        footer { text-align: center; padding: 60px 40px; color: var(--text-muted); font-size: 0.9rem; }
-        
-        @media (max-width: 768px) {
-            .insight-grid { grid-template-columns: 1fr; }
-            .container { padding: 30px 20px; }
-        }
+        :root { --bg: #f4f7fa; --accent: #d4a3a3; --dark: #1a202c; --text: #4a5568; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; margin: 0; padding: 40px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: var(--dark); margin-bottom: 10px; }
+        h2 { color: var(--accent); margin-top: 40px; border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; }
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 12px; font-family: 'Courier New', monospace; overflow-x: auto; font-size: 0.9rem; margin: 20px 0; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--accent); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
-<header>
-    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Data Analysis & Business Intelligence</p>
-</header>
-
 <div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    <a href="index.html" class="back-btn">← Volver al inicio</a>
     
-    <h1>Bike Rental Demand Analysis</h1>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">by Grecia Zarella Alvarez Leyva</p>
+    <h1>Automated Trading System (ATS)</h1>
+    <p><strong>Quantitative Engineering & Algorithmic Strategy | Forex Market</strong></p>
 
-    <div class="tech-list">
-        <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
-        <span class="tech-tag">Pandas</span>
-        <span class="tech-tag">Seaborn</span>
-        <span class="tech-tag">Matplotlib</span>
-        <span class="tech-tag">EDA</span>
-    </div>
+    <h2>1. Research Premise: Context vs. Permission</h2>
+    <p>Este sistema se basa en una investigación cuantitativa sobre el análisis de múltiples marcos temporales. Basándome en la teoría de Brian Shannon (2008), el sistema diferencia entre el <strong>Contexto de Mercado (H4)</strong> y el <strong>Permiso de Entrada (H1)</strong>. Evitar la sobre-optimización (over-fitting) al buscar alineación perfecta en todos los marcos temporales fue clave para mantener la robustez del sistema.</p>
+    
+    
 
-    <img src="proyecto3.png" alt="Project Cover" class="featured-img">
+    <h2>2. Technical Architecture (MQL5)</h2>
+    <p>La transición de un prototipo en Python a un motor de ejecución en MQL5 permitió transformar lógica discrecional en un entorno de ejecución algorítmica 24/7. El sistema utiliza una arquitectura basada en eventos (event-driven) que procesa señales en tiempo real.</p>
 
-    <h2>1. Introduction</h2>
-    <p>The rental bike industry emerged strongly in 2020 as a safe and flexible mobility alternative. Today, it is a key solution for students and professionals. This project utilizes Python to identify demand patterns influenced by weather and time, providing strategic insights for fleet optimization and expansion into emerging markets like <strong>Latin America</strong>.</p>
+    
 
-    <div class="data-box">
-        <i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 10px;"></i>
-        <strong>Major Insight:</strong> Analysis shows a massive gap between seasons, with <strong>Summer (420,714 rentals)</strong> nearly 5x higher than Winter demand.
-    </div>
-
-    <h2>2. Methodology</h2>
-    <p>Using a dataset of 1,387 records, the analysis followed these steps:</p>
+    <h3>Highlights Técnicos:</h3>
     <ul>
-        <li><strong>Data Cleaning:</strong> Handled with Pandas to ensure integrity in the 14 original variables.</li>
-        <li><strong>Statistical Correlation:</strong> Calculated coefficients to measure the impact of environmental factors.</li>
-        <li><strong>Temporal Analysis:</strong> Grouping data by hour and season to find peak usage windows.</li>
+        <li><strong>Bias Directional (H4):</strong> Utiliza cruces de EMAs (20/50) para establecer la dirección institucional.</li>
+        <li><strong>Gestión de Volatilidad (ATR):</strong> Implementación de stop-loss dinámico basado en un multiplicador (1.72) del Average True Range.</li>
+        <li><strong>Risk Governance:</strong> Cálculo de lotaje automático ajustado al capital (Equity) en tiempo real.</li>
     </ul>
 
-    <h2>3. Key Insights & Visualizations</h2>
-    <p style="font-size: 0.9rem; color: var(--text-muted);"><i class="fas fa-search-plus"></i> Click on the images to enlarge</p>
+    <h2>3. Execution Methodology</h2>
+    <p>El siguiente fragmento de código ilustra la lógica central de protección de riesgo y dimensionamiento de posición antes de enviar la orden al servidor del broker:</p>
     
-    <div class="insight-grid">
-        <div class="insight-item">
-            <h4><i class="fas fa-clock"></i> Hourly Demand Peaks</h4>
-            <p>Significant spikes identified at 8:00 AM and 5:00-6:00 PM, confirming high dependency on daily commuting.</p>
-            <img src="imagen1.png" alt="Hourly Analysis Graph" class="clickable-img" onclick="openModal(this.src)">
-        </div>
+    <div class="code-block">
+// ATR-Based Stop Loss & Position Sizing Logic
+double sl = structuralLow - (atr * 1.72);
+double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);
+double tp = close1 + (MathAbs(close1 - sl) * 2);
 
-        <div class="insight-item">
-            <h4><i class="fas fa-sun"></i> Weather Sensitivity</h4>
-            <p>Temperature shows a 0.55 positive correlation, while Rainfall (-0.11) acts as the main deterrent.</p>
-            <img src="imagen2.png" alt="Weather Correlation Plot" class="clickable-img" onclick="openModal(this.src)">
-        </div>
-
-        <div class="insight-item" style="grid-column: span 2;">
-            <h4><i class="fas fa-chart-bar"></i> Seasonal Performance</h4>
-            <p>Visual comparison of rental volume across seasons, highlighting June as the most profitable month.</p>
-            <img src="imagen3.png" alt="Seasonality Bar Chart" class="clickable-img" onclick="openModal(this.src)">
-        </div>
+// Execute trade if all quantitative thresholds are met
+OpenTradeBuy(lot, sl, tp);
     </div>
 
-    <h2>4. Actionable Strategy</h2>
-    <p>To maximize ROI and operational efficiency, the following steps are proposed:</p>
-    <ul>
-        <li><strong>Dynamic Fleet Allocation:</strong> Increase supply during Summer peaks and focus on holiday locations in June.</li>
-        <li><strong>Commuter Packages:</strong> Launch weekday subscription models for the 8 AM / 5 PM user segment.</li>
-        <li><strong>LATAM Expansion:</strong> Target high-density urban centers in Latin America where micromobility is currently underdeveloped.</li>
-    </ul>
-
-    <h2>5. Conclusion</h2>
-    <p>Rental demand is deeply tied to commuting habits and environmental conditions. By leveraging these data patterns, companies can minimize idle fleet time and successfully scale into new, high-potential regions.</p>
+    <h2>4. Conclusión</h2>
+    <p>La investigación demuestra que la automatización no solo elimina el sesgo emocional, sino que permite una ejecución consistente de reglas estadísticas. Este sistema no busca la "operación perfecta", sino la **disciplina algorítmica** necesaria para operar en mercados complejos con una gestión de riesgo cuantificada.</p>
 </div>
-
-<div id="imgModal" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="fullImg">
-</div>
-
-<footer>
-    <p>© 2026 | Professional Data Analysis Portfolio | Grecia Zarella Alvarez Leyva</p>
-</footer>
-
-<script>
-    function openModal(src) {
-        document.getElementById("imgModal").style.display = "block";
-        document.getElementById("fullImg").src = src;
-    }
-
-    function closeModal() {
-        document.getElementById("imgModal").style.display = "none";
-    }
-
-    // Cerrar con la tecla Esc
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {
-            closeModal();
-        }
-    });
-</script>
 
 </body>
 </html>
