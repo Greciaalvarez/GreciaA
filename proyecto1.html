@@ -2,47 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automated Trading System | Portfolio Grecia Alvarez</title>
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f4f7fa;
+            --white: #ffffff;
+            --accent: #d4a3a3; /* Rose Gold */
+            --dark: #1a202c;
+            --text-muted: #718096;
+            --light-accent: #fdf2f2;
+        }
+
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.8; margin: 0; }
+        header { background: var(--dark); padding: 40px 20px; text-align: center; color: white; }
+        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        
+        .back-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 600; margin-bottom: 30px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
+        h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
+        .tech-list { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+
+        .featured-img { width: 100%; height: 400px; object-fit: cover; border-radius: 25px; margin-bottom: 40px; }
+        
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .insight-item { background: #f8fafc; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; }
+        
+        .code-container { background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 20px; font-family: 'Courier New', monospace; overflow-x: auto; margin-top: 20px; }
+
+        .modal { display: none; position: fixed; z-index: 9999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(26, 32, 44, 0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 900px; border-radius: 15px; }
+        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+
+        footer { text-align: center; padding: 60px; color: var(--text-muted); font-size: 0.9rem; }
+    </style>
+</head>
 <body>
+
+<header>
+    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Quantitative Engineering & Algorithmic Trading</p>
+</header>
 
 <div class="container">
     <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     
     <h1>Automated Trading System (ATS)</h1>
-    <p><strong>Quantitative Engineering & Algorithmic Strategy | Forex</strong></p>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">End-to-End Quantitative Research & Execution by Grecia Zarella Alvarez Leyva</p>
 
-    <h2>1. Research Premise: Context vs. Permission</h2>
-    <p>This system was built upon a quantitative investigation into multi-timeframe analysis. Inspired by Brian Shannon's market theory, I challenged the assumption that strict alignment across all timeframes is necessary. My research suggests that <strong>higher timeframes define market context</strong>, while lower timeframes provide the tactical entry. Enforcing total alignment often results in "analysis paralysis" or missed volatility; this system balances institutional context with agile execution.</p>
-    
-    
+    <div class="tech-list">
+        <span class="tech-tag">MQL5 (C++)</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Algorithmic Trading</span>
+        <span class="tech-tag">Risk Management</span>
+    </div>
 
-    <h2>2. Technical Architecture</h2>
-    <p>The transition from a research prototype (Python) to an automated engine (MQL5) required a move from data manipulation to event-driven programming. The system utilizes an event-driven architecture that responds to real-time market ticks, ensuring latency-sensitive execution.</p>
+    <div style="background: #e2e8f0; height: 300px; border-radius: 25px; margin-bottom: 40px; display: flex; align-items: center; justify-content: center; color: #718096;">
+        [Placeholder: Insert Multi-Timeframe Analysis Diagram]
+    </div>
 
-    
+    <h2>1. Research Framework</h2>
+    <p>This project was built from scratch to investigate the most effective way to analyze financial markets across multiple timeframes. Based on the theory by <strong>Brian Shannon (2008)</strong>, the system operates on the core principle that <em>"higher timeframes define context, not permission."</em> The research focused on translating discretionary trading concepts into a robust, rule-based execution system.</p>
 
-    <h3>Engineering Highlights:</h3>
+    <h2>2. System Architecture</h2>
+    <p>The system evolved from a Python prototyping phase to a production-grade <strong>MQL5 Expert Advisor (EA)</strong>. The architecture is designed to minimize emotional bias and maximize algorithmic discipline:</p>
     <ul>
-        <li><strong>Structural Logic:</strong> Utilizes H4 EMA trends to establish directional bias, preventing trades against the institutional current.</li>
-        <li><strong>Volatility-Adjusted Risk:</strong> Replaced static Stop Losses with an ATR (Average True Range) buffer ($1.72 \times ATR$), allowing the system to expand risk parameters during high volatility.</li>
-        <li><strong>Automated Risk Governance:</strong> A dynamic lot-size calculator that adapts to account equity on every trade, maintaining a strict risk percentage regardless of account growth or drawdown.</li>
+        <li><strong>Bias Directional (H4):</strong> Uses EMA (20/50) crossovers to establish the institutional market trend.</li>
+        <li><strong>Execution Trigger (H1):</strong> Implements a "Pullback and Resumption" logic filtered by RSI and ATR indicators.</li>
+        <li><strong>Structural Risk Management:</strong> Automated lot-size calculation based on account equity, combined with a volatility-adjusted (ATR) stop-loss.</li>
     </ul>
 
-    <h2>3. Execution Methodology (MQL5 Snippet)</h2>
-    <div class="code-block">
-        // Dynamic Risk Management & ATR Buffer Integration
-        double sl = structuralLow - (atr * 1.72);
-        double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);
-        double tp = close1 + (MathAbs(close1 - sl) * 2);
-        
-        // Execute trade if all quantitative thresholds are met
+    <h2>3. Core Engineering Snippet</h2>
+    <p>The following logic manages the ATR-based Stop Loss and the position sizing engine, ensuring that risk is governed algorithmically on every trade:</p>
+    
+    <div class="code-container">
+        // ATR-Based Stop Loss & Position Sizing Engine<br>
+        double sl = structuralLow - (atr * 1.72);<br>
+        double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);<br>
+        double tp = close1 + (MathAbs(close1 - sl) * 2);<br>
         OpenTradeBuy(lot, sl, tp);
     </div>
 
-    <h2>4. Outcome & Insights</h2>
-    <p>The system proves that automated trading is not merely about signal generation—it is about <strong>execution discipline</strong>. By quantifying risk management into the core codebase, the system effectively mitigates the "human element," ensuring that every trade strictly adheres to the established Quantitative Rules regardless of market volatility.</p>
+    <h2>4. Conclusion</h2>
+    <p>My research concludes that forcing alignment across too many timeframes suppresses valid opportunities. This automated system achieves a critical balance: utilizing higher-timeframe context for safety, while maintaining the agile execution required for swing trading. This project demonstrates not just coding capability, but a deep understanding of market mechanics and the transition from <strong>theoretical research to live systems engineering</strong>.</p>
 </div>
+
+<footer>
+    <p>© 2026 | Data Analytics Portfolio | Grecia Zarella Alvarez Leyva</p>
+</footer>
 
 </body>
 </html>
