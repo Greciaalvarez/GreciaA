@@ -3,54 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automated Trading System | Portfolio Grecia Alvarez</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>ATS Project | Portfolio</title>
     <style>
-        :root {
-            --bg: #f4f7fa;
-            --white: #ffffff;
-            --accent: #d4a3a3; /* Rose Gold */
-            --dark: #1a202c;
-            --text-muted: #718096;
-            --light-accent: #fdf2f2;
-        }
-
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.8; margin: 0; }
-        header { background: var(--dark); padding: 40px 20px; text-align: center; color: white; }
-        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; background-color: #f4f7f6; }
+        .tech-list { margin-bottom: 30px; }
+        .tech-tag { background: #e2e8f0; padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; margin-right: 10px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        h2 { margin-top: 50px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
         
-        .back-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 600; margin-bottom: 30px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
-        h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
-        .tech-list { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
-
-        .featured-img { width: 100%; height: 400px; object-fit: cover; border-radius: 25px; margin-bottom: 40px; }
-        
-        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
-        .insight-item { background: #f8fafc; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; }
-        
-        .code-container { background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 20px; font-family: 'Courier New', monospace; overflow-x: auto; margin-top: 20px; }
-
-        .modal { display: none; position: fixed; z-index: 9999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(26, 32, 44, 0.9); }
-        .modal-content { margin: auto; display: block; width: 80%; max-width: 900px; border-radius: 15px; }
+        /* Thumbnail/Modal Styles */
+        .thumb { cursor: pointer; border-radius: 10px; transition: 0.3s; width: 100px; height: 100px; object-fit: cover; }
+        .thumb:hover { opacity: 0.7; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; max-width: 80%; max-height: 80%; border-radius: 10px; margin-top: 50px; }
         .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
-
-        footer { text-align: center; padding: 60px; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Quantitative Engineering & Algorithmic Trading</p>
-</header>
-
-<div class="container">
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-    
+    <a href="index.html" style="text-decoration: none; color: #718096;">&larr; Back to Portfolio</a>
     <h1>Automated Trading System (ATS)</h1>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">End-to-End Quantitative Research & Execution by Grecia Zarella Alvarez Leyva</p>
+    <p>A quantitative swing-trading strategy engineered in MQL5, focused on multi-timeframe alignment and disciplined risk management.</p>
 
     <div class="tech-list">
         <span class="tech-tag">MQL5 (C++)</span>
@@ -59,52 +32,52 @@
         <span class="tech-tag">Risk Management</span>
     </div>
 
-    <img src="diagrama_trading.png" alt="Multi-Timeframe Analysis Diagram" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-
     <h2>1. Research Framework</h2>
-    <p>This project was built from scratch to investigate the most effective way to analyze financial markets across multiple timeframes. Based on the theory by <strong>Brian Shannon (2008)</strong>, the system operates on the core principle that <em>"higher timeframes define context, not permission."</em> The research focused on translating discretionary trading concepts into a robust, rule-based execution system.</p>
+    <img src="diagrama_trading.png" alt="Multi-Timeframe Analysis Diagram" style="width: 80%; display: block; margin: 20px auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
 
-    <h2>2. System Architecture</h2>
-    <p>The system evolved from a Python prototyping phase to a production-grade <strong>MQL5 Expert Advisor (EA)</strong>. The architecture is designed to minimize emotional bias and maximize algorithmic discipline:</p>
-    <ul>
-        <li><strong>Bias Directional (H4):</strong> Uses EMA (20/50) crossovers to establish the institutional market trend.</li>
-        <li><strong>Execution Trigger (H1):</strong> Implements a "Pullback and Resumption" logic filtered by RSI and ATR indicators.</li>
-        <li><strong>Structural Risk Management:</strong> Automated lot-size calculation based on account equity, combined with a volatility-adjusted (ATR) stop-loss.</li>
-    </ul>
+    <h2>2. Core Engineering Snippet</h2>
+    <pre style="background: #2d3748; color: #edf2f7; padding: 20px; border-radius: 10px; overflow-x: auto;">
+<code>// Example of risk-adjusted entry logic
+if (CheckATRVolatility() && TimeframeAlignment()) {
+    ExecuteTrade(Symbol(), OP_BUY, 0.1, Bid, 300, 600);
+}</code></pre>
 
-    <h2>3. Core Engineering Snippet</h2>
-    <p>The following logic manages the ATR-based Stop Loss and the position sizing engine, ensuring that risk is governed algorithmically on every trade:</p>
-    
-    <div class="code-container">
-        // ATR-Based Stop Loss & Position Sizing Engine<br>
-        double sl = structuralLow - (atr * 1.72);<br>
-        double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);<br>
-        double tp = close1 + (MathAbs(close1 - sl) * 2);<br>
-        OpenTradeBuy(lot, sl, tp);
-    </div>
+    <h2>3. Empirical Performance & Backtesting</h2>
+    <p>Segmenting performance by timeframe validates our Swing Trading logic across different market regimes.</p>
 
-    <h2>4. Empirical Performance & Backtesting</h2>
-    <p>Validating the transition from research prototype to execution engine requires empirical testing across different market regimes. Our backtesting approach prioritizes consistency over the maximization of isolated metrics to avoid <em>over-fitting</em>. The scenarios below compare our high-performance baseline against a more conservative stress test.</p>
-
-    <img src="tu_imagen_backtest.png" alt="Equity Curve Analysis" style="width: 80%; display: block; margin: 20px auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-
-    <div class="insight-grid">
-        <div class="insight-item">
-            <strong>Scenario A: High-Performance (Sharpe: 3.01)</strong><br>
-            Optimized for efficiency, validating the logic of our H4-context filter.
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
+            <h3 style="margin-top: 0; color: #d4a3a3;">Historical Baseline (2024-2025)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>Sharpe:</strong> 3.01 | <strong>DD:</strong> 7.31%</li>
+            </ul>
+            <img src="tu_imagen_historico.png" class="thumb" onclick="openModal(this.src)">
         </div>
-        <div class="insight-item">
-            <strong>Scenario B: Conservative (Sharpe: 0.67)</strong><br>
-            A stress-test result, demonstrating the algorithm's capability to maintain a positive Profit Factor during high volatility.
+
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
+            <h3 style="margin-top: 0; color: #d4a3a3;">Recent Adaptability (Feb 2026)</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li><strong>Status:</strong> High Volatility Management</li>
+                <li><strong>Outcome:</strong> Consistent Trade Duration (2-3 days)</li>
+            </ul>
+            <img src="tu_imagen_reciente.png" class="thumb" onclick="openModal(this.src)">
         </div>
     </div>
 
-    <p style="margin-top: 30px;"><strong>Key Takeaway:</strong> The variance in results confirms that the system is not hard-coded to a single market condition. By focusing on <em>Risk Governance</em> (ATR-based stops), the strategy maintains resilience across varying market cycles.</p>
+    <h2>4. Conclusion</h2>
+    <p>My research concludes that forcing alignment across too many timeframes suppresses valid opportunities. This automated system achieves a critical balance: utilizing higher-timeframe context for safety, while maintaining the agile execution required for swing trading. This project demonstrates not just coding capability, but a deep understanding of market mechanics and the transition from theoretical research to live systems engineering.</p>
 
-    <h2>5. Conclusion</h2>
-    <p>My research concludes that forcing alignment across too many timeframes suppresses valid opportunities. This automated system achieves a critical balance: utilizing higher-timeframe context for safety, while maintaining the agile execution required for swing trading. This project demonstrates not just coding capability, but a deep understanding of market mechanics and the transition from <strong>theoretical research to live systems engineering</strong>.</p>
+    <div id="myModal" class="modal">
+      <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+      <img class="modal-content" id="img01">
+    </div>
 
-</footer>
+    <script>
+        function openModal(src) {
+            document.getElementById('myModal').style.display = 'block';
+            document.getElementById('img01').src = src;
+        }
+    </script>
 
 </body>
 </html>
