@@ -74,9 +74,12 @@
     <h2>2. System Architecture</h2>
     <p>The system evolved from a Python prototyping phase to a production-grade <strong>MQL5 Expert Advisor (EA)</strong>. The architecture is designed to minimize emotional bias and maximize algorithmic discipline:</p>
     <ul>
-        <li><strong>Bias Directional (H4):</strong> Uses EMA (20/50) crossovers to establish the institutional market trend.</li>
-        <li><strong>Execution Trigger (H1):</strong> Implements a "Pullback and Resumption" logic filtered by RSI and ATR indicators.</li>
-        <li><strong>Structural Risk Management:</strong> Automated lot-size calculation based on account equity, combined with a volatility-adjusted (ATR) stop-loss.</li>
+        <li><strong>Directional Bias (H4 timeframe):</strong> Market trend is defined using EMA (20/50) crossovers to capture higher timeframe momentum.</li>
+        <li><strong>Execution Layer (H1 timeframe):</strong> Trade entries are triggered using a Pullback and Resumption model, filtered by RSI (momentum) and ATR (volatility).</li>
+        <li><strong>Risk Management Engine:
+            <li><strong>Dynamic position sizing based on account equity.</li>
+            <li><strong>ATR-based stop-loss to adapt to market volatility.</li>
+            <li><strong>AFixed risk-reward ratio to ensure consistency across trades.</li>
     </ul>
 
     <h2>3. Core Engineering Snippet</h2>
