@@ -30,7 +30,7 @@
 
         .code-container { background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 20px; font-family: 'Courier New', monospace; overflow-x: auto; margin: 20px 0; }
 
-        /* Estilos del Modal (Zoom) */
+        /* Estilos del Modal (Zoom) - Corregido y simplificado */
         .modal { 
             display: none; 
             position: fixed; 
@@ -73,8 +73,8 @@
 </head>
 <body>
 
-<div id="myModal" class="modal" onclick="this.style.display='none'">
-    <span class="close">&times;</span>
+<div id="myModal" class="modal">
+    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
     <img class="modal-content" id="img01">
 </div>
 
@@ -96,7 +96,7 @@
         <span class="tech-tag">Backtesting</span>
     </div>
 
-    <img src="diagrama_trading.png" alt="Multi-Timeframe Analysis Diagram" class="zoomable" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+    <img src="diagrama_trading.png" alt="System Architecture Diagram" class="zoomable" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
 
     <h2>1. Research Framework</h2>
     <p>This independent research and development project focuses on the creation of an algorithmic
@@ -135,25 +135,28 @@
     <h2>4. Empirical Performance & Backtesting</h2>
     <p>Performance evaluation was conducted using historical data and strategy testing in MetaTrader 5.</p>
     
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
-            <h3 style="color: #d4a3a3;">Historical Baseline (2023-2026)</h3>
-            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
-                <li><strong>Sharpe:</strong> 1.56 | <strong>DD:</strong> 7.80% | <strong>Profit Factor:</strong> 1.25</li>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px;">
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+            <h3 style="color: #d4a3a3; font-size: 1.1rem; margin-bottom: 15px;">Historical Baseline (2023-2026)</h3>
+            <ul style="list-style: none; padding: 0; margin-bottom: 20px; font-size: 0.9rem; line-height: 1.6;">
+                <li><strong>Sharpe:</strong> 1.56 | <strong>DD:</strong> 7.80%</li>
+                <li><strong>Profit Factor:</strong> 1.25</li>
             </ul>
-            <div style="width: 100%; height: 150px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0;">
-                <img src="Screenshot_MT5_Graph.png" alt="Historical Balance Curve" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(1.05);">
+            
+            <div style="width: 100%; height: 200px; border-radius: 12px; overflow: hidden; border: 1px solid #d4a3a3; box-shadow: 0 5px 15px rgba(212, 163, 163, 0.1);">
+                <img src="historical_baseline_quartz.jpg" alt="Quartz Capital Curve Concept" class="zoomable" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
         </div>
 
-        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-            <h3 style="color: #d4a3a3;">Recent Adaptability (Feb 2026)</h3>
+        <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+            <h3 style="color: #d4a3a3; font-size: 1.1rem; margin-bottom: 15px;">Recent Adaptability (Feb 2026)</h3>
             <p style="font-size: 0.85rem; color: #718096; margin-bottom: 20px;">
                 <strong>Focus:</strong> Volatility management under changing market conditions.<br>
                 <strong>Result:</strong> Improved trade consistency and stable execution behavior.
             </p>
-            <div style="width: 100%; height: 150px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; position: relative;">
-                <img src="Screenshot_MT5_Graph.png" alt="Performance Detail Zoom" class="zoomable" style="width: 200%; height: 200%; object-fit: cover; position: absolute; right: 0; bottom: 0; filter: sepia(0.2) hue-rotate(-30deg) saturate(1.2);">
+            
+            <div style="width: 100%; height: 200px; border-radius: 12px; overflow: hidden; border: 1px solid #d4a3a3; box-shadow: 0 5px 15px rgba(212, 163, 163, 0.1);">
+                <img src="adaptability_neural_cluster.jpg" alt="Adaptive Data Network Concept" class="zoomable" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
         </div>
     </div>
@@ -192,6 +195,7 @@
 </footer>
 
 <script>
+    // Script para manejar el Zoom - Simplificado
     const modal = document.getElementById("myModal");
     const modalImg = document.getElementById("img01");
     const zoomableImages = document.querySelectorAll('.zoomable');
@@ -202,6 +206,13 @@
             modalImg.src = this.src;
         }
     });
+
+    // Cerrar al hacer clic fuera de la imagen
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 
 </body>
