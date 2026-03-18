@@ -18,33 +18,70 @@
 
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--dark); line-height: 1.8; margin: 0; }
         header { background: var(--dark); padding: 40px 20px; text-align: center; color: white; }
-        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        
+        .container { max-width: 900px; margin: -40px auto 60px; background: var(--white); padding: 50px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); position: relative; z-index: 10; }
         
         .back-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); font-weight: 600; margin-bottom: 30px; }
         h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--dark); }
         h2 { color: var(--accent); border-bottom: 2px solid #f4f7fa; padding-bottom: 10px; margin-top: 40px; }
+        
         .tech-list { list-style: none; padding: 0; display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
         .tech-tag { background: var(--light-accent); color: var(--accent); padding: 5px 15px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
 
-        .featured-img { width: 100%; height: 400px; object-fit: cover; border-radius: 25px; margin-bottom: 40px; }
-        
-        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
-        .insight-item { background: #f8fafc; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; }
-        
         .code-container { background: #1e1e1e; color: #d4d4d4; padding: 25px; border-radius: 20px; font-family: 'Courier New', monospace; overflow-x: auto; margin-top: 20px; }
 
-        .modal { display: none; position: fixed; z-index: 9999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; background: rgba(26, 32, 44, 0.9); }
-        .modal-content { margin: auto; display: block; width: 80%; max-width: 900px; border-radius: 15px; }
-        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
+        /* Estilos del Modal (Zoom) */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(26, 32, 44, 0.95); 
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Ajuste para ocultar el modal inicialmente sin romper el flex */
+        #myModal { display: none; padding-top: 0; }
+
+        .modal-content { 
+            margin: auto; 
+            display: block; 
+            width: 90%; 
+            max-width: 1100px; 
+            border-radius: 15px; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; transition: 0.3s; }
+        .close:hover { color: var(--accent); }
+
+        .zoomable { cursor: zoom-in; transition: 0.3s; }
+        .zoomable:hover { opacity: 0.8; transform: scale(1.02); }
+
+        .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+        .insight-item { background: #f8fafc; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7; }
 
         footer { text-align: center; padding: 60px; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
-    <div id="myModal" class="modal">
-  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-  <img class="modal-content" id="img01">
-</div>
 <body>
+
+<div id="myModal" class="modal">
+    <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <img class="modal-content" id="img01">
+</div>
 
 <header>
     <p style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">Quantitative Engineering & Algorithmic Trading</p>
@@ -64,105 +101,81 @@
         <span class="tech-tag">Backtesting</span>
     </div>
 
-    <img src="diagrama_trading.png" alt="Multi-Timeframe Analysis Diagram" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+    <img src="diagrama_trading.png" alt="System Architecture Diagram" class="zoomable" style="width: 80%; display: block; margin: 0 auto 40px auto; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
 
     <h2>1. Research Framework</h2>
-    <p>This independent research and development project focuses on the creation of an algorithmic
-        system designed to analyze financial markets and evaluate trading risk through quantitative
-        rules and systematic backtesting. The objective of the project is to translate discretionary trading
-        concepts into a structured, rule-based algorithm that can identify potential trading opportunities
-        under defined market conditions.</p>
+    <p>This independent research and development project focuses on the creation of an algorithmic system designed to analyze financial markets and evaluate trading risk through quantitative rules and systematic backtesting.</p>
+
     <h2>2. System Architecture</h2>
-    <p>The system evolved from a Python-based research prototype into a production-level <strong>Expert Advisor (EA)</strong> developed in MetaTrader 5 (MQL5). The architecture is designed to minimize emotional bias and maximize algorithmic discipline:</p>
+    <p>The architecture is designed to minimize emotional bias and maximize algorithmic discipline:</p>
     <ul>
-        <li><strong>Directional Bias (H4 timeframe):</strong> Market trend is defined using EMA (20/50) crossovers to capture higher timeframe momentum.</li>
-        <li><strong>Execution Layer (H1 timeframe):</strong> Trade entries are triggered using a Pullback and Resumption model, filtered by RSI (momentum) and ATR (volatility).</li>
-        <li><strong>Risk Management Engine:</strong></li>
-        <ul>
-            <li>Dynamic position sizing based on account equity.</li>
-            <li>ATR-based stop-loss to adapt to market volatility.</li>
-            <li>A fixed risk-reward ratio to ensure consistency across trades.</li>
-        </ul>
-    </li>
-        
-    </ul>
-    <p>This multi-layered structure separates context, confirmation, and execution, improving decision consistency.</p>
+        <li><strong>Directional Bias (H4 timeframe):</strong> EMA (20/50) crossovers.</li>
+        <li><strong>Execution Layer (H1 timeframe):</strong> Pullback and Resumption model (RSI & ATR).</li>
+        <li><strong>Risk Management Engine:</strong> Dynamic position sizing and ATR-based stop-loss.</li>
     </ul>
 
     <h2>3. Core Engineering Snippet</h2>
-    <p>The following snippet illustrates how volatility-adjusted risk is applied through ATR-based stop-loss and dynamic position sizing:<p>
-    
     <div class="code-container">
         // ATR-Based Stop Loss & Position Sizing Engine<br>
         double sl = structuralLow - (atr * 1.72);<br>
         double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);<br>
         double tp = close1 + (MathAbs(close1 - sl) * 2);<br>
         OpenTradeBuy(lot, sl, tp);
-    <p>This logic ensures that every trade is executed under predefined risk constraints, eliminating emotional decision-making and enforcing consistency.<p>
     </div>
+
     <h2>4. Empirical Performance & Backtesting</h2>
-    <p>Performance evaluation was conducted using historical data and strategy testing in MetaTrader 5.</p>
-    
     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
         <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 20px; border-radius: 20px; border: 1px solid #edf2f7;">
             <h3 style="color: #d4a3a3;">Historical Baseline (2023-2026)</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li><strong>Sharpe:</strong> 1.56 | <strong>DD:</strong> 7.80%</li> | <strong>Profit Factor:</strong> 1.25</li>
+            <ul style="list-style: none; padding: 0; margin-bottom: 15px;">
+                <li><strong>Sharpe:</strong> 1.56 | <strong>DD:</strong> 7.80%</li>
+                <li><strong>Profit Factor:</strong> 1.25</li>
+            </ul>
             <div style="width: 100%; height: 150px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0;">
-                <img src="Screenshot_MT5_Graph.png" alt="MT5 Backtest Graph" style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(1.05);">
+                <img src="Screenshot_MT5_Graph.png" alt="Historical Equity Curve" class="zoomable" style="width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(1.05);">
             </div>
         </div>
     
         <div style="flex: 1; min-width: 300px; background: #ffffff; padding: 25px; border-radius: 20px; border: 1px solid #edf2f7; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
             <h3 style="color: #d4a3a3; font-size: 1.1rem; margin-bottom: 15px;">Recent Adaptability (Feb 2026)</h3>
-            <p style="font-size: 0.85rem; color: #718096; margin-bottom: 20px;">
-                Execution behavior during high volatility periods, maintaining recovery factor.
-            </p>
-            
+            <p style="font-size: 0.85rem; color: #718096; margin-bottom: 20px;">Execution behavior during high volatility periods.</p>
             <div style="width: 100%; height: 150px; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; position: relative;">
-                <img src="Screenshot_MT5_Graph.png" alt="Performance Detail" style="width: 200%; height: 200%; object-fit: cover; position: absolute; right: 0; bottom: 0; filter: sepia(0.2) hue-rotate(-30deg) saturate(1.2);">
-                </div>
+                <img src="Screenshot_MT5_Graph.png" alt="Performance Detail Zoom" class="zoomable" style="width: 200%; height: 200%; object-fit: cover; position: absolute; right: 0; bottom: 0; filter: sepia(0.2) hue-rotate(-30deg) saturate(1.2);">
+            </div>
         </div>
     </div>
-    <h2>5. Key Skills Demonstrated</h2>
 
+    <h2>5. Key Skills Demonstrated</h2>
     <div class="insight-grid">
-    
-        <div class="insight-item">
-            <h3>Data Analysis & Financial Modeling</h3>
-            <p>Applied statistical and quantitative methods to analyze market data and evaluate trading performance.</p>
-        </div>
-    
-        <div class="insight-item">
-            <h3>Algorithmic Decision Systems</h3>
-            <p>Designed and implemented a rule-based trading system to transform discretionary strategies into automated execution logic.</p>
-        </div>
-    
-        <div class="insight-item">
-            <h3>Risk Management & Optimization</h3>
-            <p>Developed volatility-adjusted risk models using ATR-based stop-loss and dynamic position sizing.</p>
-        </div>
-    
-        <div class="insight-item">
-            <h3>Python (Data Analysis)</h3>
-            <p>Built data analysis pipelines for signal generation, validation, and market condition evaluation.</p>
-        </div>
-    
-        <div class="insight-item">
-            <h3>MQL5 (Algorithmic Trading Systems)</h3>
-            <p>Engineered a production-level Expert Advisor (EA) for automated trade execution in MetaTrader 5.</p>
-        </div>
-    
-        <div class="insight-item">
-            <h3>Backtesting & Performance Evaluation</h3>
-            <p>Conducted historical testing and performance analysis using metrics such as Sharpe Ratio and Drawdown.</p>
-        </div>
-    
+        <div class="insight-item"><h3>Risk Management</h3><p>Developed volatility-adjusted risk models.</p></div>
+        <div class="insight-item"><h3>MQL5</h3><p>Engineered a production Expert Advisor.</p></div>
     </div>
+</div>
 
 <footer>
     <p>© 2026 | Data Analytics Portfolio | Grecia Zarella Alvarez Leyva</p>
 </footer>
+
+<script>
+    // Script para manejar el Zoom
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("img01");
+    const zoomableImages = document.querySelectorAll('.zoomable');
+
+    zoomableImages.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        }
+    });
+
+    // Cerrar al hacer clic fuera de la imagen
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
