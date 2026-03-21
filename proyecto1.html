@@ -120,15 +120,21 @@
     </ul>
     <p>This multi-layered structure separates context, confirmation, and execution, improving decision consistency.</p>
 
-    <h2>3. Core Engineering Snippet</h2>
-    <p>The following snippet illustrates how volatility-adjusted risk is applied through ATR-based stop-loss and dynamic position sizing:</p>
+    <h2>3. Volatility-Aware Risk Engine</h2>
+    <p>This module dynamically adjusts stop-loss and position size based on market volatility using ATR, ensuring consistent risk exposure across different market conditions.</p>
     
     <div class="code-container">
-        // ATR-Based Stop Loss & Position Sizing Engine<br>
-        double sl = structuralLow - (atr * 1.60);<br>
-        double lot = CalculateLotSize(MathAbs(close1 - sl)/_Point);<br>
-        double tp = close1 + (MathAbs(close1 - sl) * 2);<br>
-        OpenTradeBuy(lot, sl, tp);
+        // Adaptive Risk Allocation Logic
+    
+        risk_per_trade = equity * risk_percentage;
+    
+        volatility_adjusted_sl = entry_price - (ATR * multiplier);
+    
+        position_size = risk_per_trade / trade_risk;
+    
+        target = entry_price + (reward_ratio * trade_risk);
+    
+        place_order(position_size, volatility_adjusted_sl, target);
     </div>
     <p>This logic ensures that every trade is executed under predefined risk constraints, eliminating emotional decision-making and enforcing consistency.</p>
 
