@@ -120,23 +120,33 @@
     </ul>
     <p>This multi-layered structure separates context, confirmation, and execution, improving decision consistency.</p>
 
-    <h2>3. Volatility-Aware Risk Engine</h2>
-    <p>This module dynamically adjusts stop-loss and position size based on market volatility using ATR, ensuring consistent risk exposure across different market conditions.</p>
+   <h2>3. Volatility-Aware Risk Engine</h2>
+
+    <p>
+    This module dynamically adjusts stop-loss and position size based on market volatility using ATR, 
+    ensuring consistent risk exposure across different market conditions.
+    </p>
     
     <div class="code-container">
         // Adaptive Risk Allocation Logic
     
         risk_per_trade = equity * risk_percentage;
     
-        volatility_adjusted_sl = entry_price - (ATR * multiplier);
+        stop_loss = entry_price - (ATR * multiplier);
+    
+        trade_risk = abs(entry_price - stop_loss);
     
         position_size = risk_per_trade / trade_risk;
     
         target = entry_price + (reward_ratio * trade_risk);
     
-        place_order(position_size, volatility_adjusted_sl, target);
+        place_order(position_size, stop_loss, target);
     </div>
-    <p>This logic ensures that every trade is executed under predefined risk constraints, eliminating emotional decision-making and enforcing consistency.</p>
+    
+    <p>
+    This logic enforces disciplined execution by standardizing risk per trade, 
+    reducing exposure variability and eliminating discretionary bias.
+    </p>
 
     <h2>4. Empirical Performance & Backtesting</h2>
     <p>Performance evaluation was conducted using historical data and strategy testing in MetaTrader 5.</p>
